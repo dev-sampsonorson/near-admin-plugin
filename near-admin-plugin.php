@@ -3,11 +3,11 @@
         session_start();
 
     /**
-     * @package Galaxy Admin Plugin
+     * @package Near Foundation Admin Plugin
      */
 
     /**
-     * Plugin Name: Galaxy Admin Plugin
+     * Plugin Name: Near Foundation Admin Plugin
      * Description: Use this plugin to manage the Galaxy website
      * Version: 1.0.0
      * Author: Sampson Orson Jackson
