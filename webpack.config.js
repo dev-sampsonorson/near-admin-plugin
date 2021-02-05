@@ -16,7 +16,7 @@ module.exports = (env) => {
         context: __dirname,
         target: "web",
         entry: {
-            'frontend-index': './src/index.ts',
+            'frontend-index': './src/index-frontend.ts',
             'backend-index': './src/index-backend.ts',
             'styles': [
                 './src/assets/scss/frontend.scss',

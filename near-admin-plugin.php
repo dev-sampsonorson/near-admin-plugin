@@ -22,9 +22,13 @@
     define ('WB_CURRENT_TIMEZONE', "Africa/Lagos");
     define ('WB_DATE_FORMAT', "Y-m-d");
     define ('WB_DATETIME_FORMAT', "Y-m-d H:i:s");
+    
+    define ('PLUGIN_INDEX_FILE', 'near-admin-plugin.php' );
+
+    define ('ADMIN_DB_VERSION_KEY', 'galaxy_admin_db_version' );
+    define ('ADMIN_DB_VERSION', '1.0' );
 
     define ('GALAXY_ADMIN_VERSION', '1.0' );
-    define ('GALAXY_ADMIN_DB_VERSION', '1.0' );
     define ('GALAXY_APPLICATION_FORM_SLUG', 'application-form' );
 
     define ('GALAXY_DEFAULT_PAGE_SIZE', 2);

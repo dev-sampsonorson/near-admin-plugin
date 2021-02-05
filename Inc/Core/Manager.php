@@ -9,99 +9,7 @@
         private const DELETE = 1;
 
         private static $tables = array(
-            BaseRepository::EXAM_TABLE_NAME => array(
-                'primary_key' => 'id',
-                'columns' => array(
-                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-                    'examName' => 'tinytext NOT NULL',
-                    'examRegistrationPrice' => 'double(12,2) NOT NULL',
-                    'bookPurchasePrice' => 'double(12,2) NOT NULL',
-                    'lessonEnrolmentPrice' => 'double(12,2) NOT NULL'
-                    // 'update_date' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
-                ),
-                'data' => array(
-                    array('id' => 1, 'examName' => 'TOEFL', 'examRegistrationPrice' => 100000.00, 'bookPurchasePrice' => 10000.00, 'lessonEnrolmentPrice' => 65000.00),
-                    array('id' => 2, 'examName' => 'IELTS', 'examRegistrationPrice' => 85000.00, 'bookPurchasePrice' => 10000.00, 'lessonEnrolmentPrice' => 65000.00),
-                    array('id' => 3, 'examName' => 'IELTS (UKVI)', 'examRegistrationPrice' => 95000.00, 'bookPurchasePrice' => 10000.00, 'lessonEnrolmentPrice' => 65000.00),
-                    //array('id' => 4, 'examName' => 'PEARSON', 'examRegistrationPrice' => 1000.00, 'bookPurchasePrice' => 1000.00, 'lessonEnrolmentPrice' => 1000.00), // TODO
-                    array('id' => 4, 'examName' => 'SAT 1', 'examRegistrationPrice' => 65000.00, 'bookPurchasePrice' => 15000.00, 'lessonEnrolmentPrice' => 65000.00),
-                    array('id' => 5, 'examName' => 'ACT', 'examRegistrationPrice' => 85000.00, 'bookPurchasePrice' => 15000.00, 'lessonEnrolmentPrice' => 100000.00),
-                    array('id' => 6, 'examName' => 'GMAT', 'examRegistrationPrice' => 130000.00, 'bookPurchasePrice' => 20000.00, 'lessonEnrolmentPrice' => 135000.00),
-                    array('id' => 7, 'examName' => 'GRE', 'examRegistrationPrice' => 120000.00, 'bookPurchasePrice' => 15000.00, 'lessonEnrolmentPrice' => 65000.00),
-                    //array('id' => 9, 'examName' => 'ICDL', 'examRegistrationPrice' => 1000.00, 'bookPurchasePrice' => 1000.00, 'lessonEnrolmentPrice' => 1000.00), // TODO
-                )
-            ),
-            BaseRepository::PURCHASE_HEADER_TABLE_NAME => array(
-                'primary_key' => 'id',
-                'columns' => array(
-                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-                    'studentId' => 'int(11) NOT NULL',
-                    'emailAddress' => 'tinytext NOT NULL',
-                    'isPaid' => 'boolean NOT NULL DEFAULT false',
-                    'total' => 'double(12,2) NOT NULL',
-                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
-                )
-            ),
-            BaseRepository::PURCHASE_ITEM_TABLE_NAME => array(
-                'primary_key' => 'id',         
-                'columns' => array(
-                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-                    'purchaseId' => 'int(11) NOT NULL',
-                    'examId' => 'int(11) NOT NULL',
-                    'examRegistration' => 'boolean NOT NULL DEFAULT false',
-                    'bookPurchase' => 'boolean NOT NULL DEFAULT false',
-                    'lessonEnrolment' => 'boolean NOT NULL DEFAULT false',
-                    'preferredExamDate' => 'DATETIME NOT NULL',
-                    'alternativeExamDate' => 'DATETIME NOT NULL',
-                    'preferredExamLocation' => 'tinytext NOT NULL',
-                    'alternativeExamLocation' => 'tinytext NOT NULL',                    
-                    'examRegistrationPrice' => 'double(12,2) NOT NULL',
-                    'bookPurchasePrice' => 'double(12,2) NOT NULL',
-                    'lessonEnrolmentPrice' => 'double(12,2) NOT NULL',
-                    'itemTotal' => 'double(12,2) NOT NULL'
-                )
-            ),
-            BaseRepository::STUDENT_TABLE_NAME => array(
-                'primary_key' => 'id',
-                'columns' => array(
-                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-                    'title' => 'tinytext NOT NULL',
-                    'lastName' => 'tinytext NOT NULL',
-                    'firstName' => 'tinytext NOT NULL',
-                    'otherNames' => 'tinytext NOT NULL',
-                    'gender' => 'boolean NOT NULL',
-                    'birthDate' => 'DATETIME NOT NULL',
-                    'firstLanguage' => 'varchar(255) NOT NULL',
-                    'country' => 'tinytext NOT NULL',
-                    'state' => 'tinytext NOT NULL',
-                    'phoneNumber' => 'tinytext NOT NULL',
-                    'passportNumber' => 'tinytext NOT NULL',
-                    'expiryDate' => 'DATETIME NOT NULL',
-                    'permanentAddress' => 'varchar(2000) NOT NULL',
-                    'currentLevelOfStudy' => 'varchar(1000) NOT NULL',
-                    'nextLevelOfStudy' => 'varchar(1000) NOT NULL',                    
-                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP',
-                    'deleted' => 'boolean NOT NULL DEFAULT false'
-                )
-            ),
-            BaseRepository::GUARDIAN_TABLE_NAME => array(
-                'primary_key' => 'id',
-                'columns' => array(
-                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-                    'studentId' => 'int(11) NOT NULL',
-                    'lastName' => 'tinytext NOT NULL',
-                    'firstName' => 'tinytext NOT NULL',
-                    'country' => 'tinytext NOT NULL',
-                    'state' => 'tinytext NOT NULL',
-                    'educationalBackground' => 'varchar(2000) NOT NULL',
-                    'occupation' => 'varchar(2000) NOT NULL',
-                    'currentPosition' => 'varchar(2000) NOT NULL',
-                    'officeAddress' => 'varchar(2000) NOT NULL',
-                    'emailAddress' => 'tinytext NOT NULL',
-                    'phoneNumber' => 'tinytext NOT NULL',
-                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
-                )
-            )
+            
         );
 
         public static function activate() {
@@ -119,17 +27,17 @@
             }
             
             // when creating tables
-            // add_option('galaxy_admin_db_version', GALAXY_ADMIN_DB_VERSION);
-            Manager::addOrRemoveGalaxyAdminDbVersion(self::ADD);
+            // add_option(ADMIN_DB_VERSION_KEY, ADMIN_DB_VERSION);
+            Manager::addOrRemoveAdminDbVersion(self::ADD);
         }
 
-        private static function addOrRemoveGalaxyAdminDbVersion($operation) {
+        private static function addOrRemoveAdminDbVersion($operation) {
             if ($operation == self::ADD) {
-                add_option('galaxy_admin_db_version', GALAXY_ADMIN_DB_VERSION);
+                add_option(ADMIN_DB_VERSION_KEY, ADMIN_DB_VERSION);
             } 
             
             if ($operation == self::DELETE) {
-                delete_option('galaxy_admin_db_version');
+                delete_option(ADMIN_DB_VERSION_KEY);
             }
         }
 
@@ -150,8 +58,8 @@
     
                 dbDelta($sql);
     
-                // add_option('galaxy_admin_db_version', GALAXY_ADMIN_DB_VERSION);
-                Manager::addOrRemoveGalaxyAdminDbVersion(self::ADD);
+                // add_option(ADMIN_DB_VERSION_KEY, ADMIN_DB_VERSION);
+                Manager::addOrRemoveAdminDbVersion(self::ADD);
             }
             catch(Exception $e) {
                 return false;
@@ -229,8 +137,8 @@
 
         public static function uninstall() {
             // when deleting tables
-            // delete_option('galaxy_admin_db_version');
-            Manager::addOrRemoveGalaxyAdminDbVersion(self::DELETE);
+            // delete_option(ADMIN_DB_VERSION_KEY);
+            Manager::addOrRemoveAdminDbVersion(self::DELETE);
 
             foreach(Manager::$tables as $table_name => $value) {
                 $result = Manager::removeTable($table_name, Manager::$tables[$table_name]);
