@@ -13,11 +13,14 @@
 <body>
     <div class="mx-auto col-xl-6 col-lg-7 col-md-8 col-sm-10 c-volunteer-form">
         <form id="volunteerForm" class="c-volunteer-form__instance" data-parsley-errors-messages-disabled>
-            <div class="c-volunteer-form__content">
-                <p class="c-volunteer-form__info fs-6">
+            <div class="py-4 c-volunteer-form__header">
+                <h2>Volunteer Application Form</h2>
+                <p class="lead c-volunteer-form__info">
                     Fill in your personal details, availability, and volunteer interest
                 </p>
-                <h5 class="my-4 text-muted">Personal Details</h5>
+            </div>
+            <div class="c-volunteer-form__content">
+                <h5 class="text-muted">Personal Details</h5>
                 <div class="form-row">
                     <div class="form-group col-4">
                         <label for="txtLastName">Last Name</label>
@@ -62,153 +65,158 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-12">
-                    <label for="txtAddress">Address</label>
-                    <input type="text" id="txtAddress" name="txtAddress" class="form-control form-control-sm"
-                           placeholder="Your address here">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="txtAddress">Address</label>
+                        <input type="text" id="txtAddress" name="txtAddress" class="form-control form-control-sm"
+                               placeholder="Your address here">
+                    </div>
                 </div>
-            </div>
-            <h5 class="my-4 text-muted">Availability - <small>at what times are you available for
-                    volunteering</small>
-            </h5>
-            <div class="form-row">
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkMorningMonFri" name="chkMorningMonFri" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkMorningMonFri">Mornings (Monday - Friday)</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkEveningsMonFri" name="chkEveningsMonFri" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkEveningsMonFri">Evenings (Monday - Friday)</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkOnceAWeek" name="chkOnceAWeek" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkOnceAWeek">Once a week</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkOneTime" name="chkOneTime" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkOneTime">One time only</label>
-                    </div>
+                <h5 class="my-4 text-muted">Availability - <small>at what times are you available for
+                        volunteering</small>
+                </h5>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <div class="form-check">
+                            <input id="chkMorningMonFri" name="chkMorningMonFri" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkMorningMonFri">Mornings (Monday - Friday)</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkEveningsMonFri" name="chkEveningsMonFri" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkEveningsMonFri">Evenings (Monday - Friday)</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkOnceAWeek" name="chkOnceAWeek" type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="chkOnceAWeek">Once a week</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkOneTime" name="chkOneTime" type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="chkOneTime">One time only</label>
+                        </div>
 
-                </div>
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkAfternonsMonFri" name="chkAfternonsMonFri" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkAfternonsMonFri">Afternoons (Monday -
-                            Friday)</label>
                     </div>
-                    <div class="form-check">
-                        <input id="chkWeekends" name="chkWeekends" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkWeekends">Weekends</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkMoreThanOnceAWeek" name="chkMoreThanOnceAWeek" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkMoreThanOnceAWeek">More than once a week</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkAsNeeded" name="chkAsNeeded" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkAsNeeded">As Needed</label>
-                    </div>
+                    <div class="form-group col-6">
+                        <div class="form-check">
+                            <input id="chkAfternonsMonFri" name="chkAfternonsMonFri" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkAfternonsMonFri">Afternoons (Monday -
+                                Friday)</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkWeekends" name="chkWeekends" type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="chkWeekends">Weekends</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkMoreThanOnceAWeek" name="chkMoreThanOnceAWeek" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkMoreThanOnceAWeek">More than once a week</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkAsNeeded" name="chkAsNeeded" type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="chkAsNeeded">As Needed</label>
+                        </div>
 
-                </div>
-            </div>
-            <h5 class="my-4 text-muted">Volunteer Interest - <small>please tick those areas of
-                    volunteering you are
-                    interested
-                    in</small></h5>
-            <div class="form-row">
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkSportsCoachAssistant" name="chkSportsCoachAssistant" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkSportsCoachAssistant">Sports coach/assistant</label>
                     </div>
+                </div>
+                <h5 class="my-4 text-muted">Volunteer Interest - <small>please tick those areas of
+                        volunteering you are
+                        interested
+                        in</small></h5>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <div class="form-check">
+                            <input id="chkSportsCoachAssistant" name="chkSportsCoachAssistant" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkSportsCoachAssistant">Sports coach/assistant</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkHelpChildrenRead" name="chkHelpChildrenRead" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkHelpChildrenRead">Helping children read or reading
+                                to them</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkMentoringTeens" name="chkMentoringTeens" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkMentoringTeens">Mentoring Teens</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkOrphanageVisiting" name="chkOrphanageVisiting" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkOrphanageVisiting">Orphanage visiting</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkCommunityWork" name="chkCommunityWork" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkCommunityWork">Community work</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <div class="form-check">
+                            <input id="chkArtCraftActivityInstructor" name="chkArtCraftActivityInstructor"
+                                   type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="chkArtCraftActivityInstructor">Arts &amp; Craft
+                                activity instructor/assistant</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkAssistingWithFundraising" name="chkAssistingWithFundraising" type="checkbox"
+                                   class="form-check-input">
+                            <label class="form-check-label" for="chkAssistingWithFundraising">Assisting with
+                                fundraising</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkHelpingChildrenUseComputer" name="chkHelpingChildrenUseComputer"
+                                   type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="chkHelpingChildrenUseComputer">Helping children use
+                                computers</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chkCharityShop" name="chkCharityShop" type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="chkCharityShop">Charity shop</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-column form-row d-flex flex-sm-row" style="margin-left: 1px; margin-right: -1px;">
                     <div class="form-check">
                         <input id="chkHelpChildrenRead" name="chkHelpChildrenRead" type="checkbox"
                                class="form-check-input">
-                        <label class="form-check-label" for="chkHelpChildrenRead">Helping children read or reading
-                            to them</label>
+                        <label class="form-check-label" for="chkHelpChildrenRead">Tutoring</label>
                     </div>
-                    <div class="form-check">
-                        <input id="chkMentoringTeens" name="chkMentoringTeens" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkMentoringTeens">Mentoring Teens</label>
+                    <div class="flex-sm-grow-1">
+                        <div class="mt-2 form-group mt-sm-0 ml-sm-4">
+                            <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
+                                   class="form-control form-control-sm" placeholder="">
+                        </div>
                     </div>
+                </div>
+                <div class="flex-column form-row d-flex" style="margin-left: 1px; margin-right: -1px;">
                     <div class="form-check">
-                        <input id="chkOrphanageVisiting" name="chkOrphanageVisiting" type="checkbox"
+                        <input id="chkNotListedActivityOfInterest" name="chkNotListedActivityOfInterest" type="checkbox"
                                class="form-check-input">
-                        <label class="form-check-label" for="chkOrphanageVisiting">Orphanage visiting</label>
+                        <label class="form-check-label" for="chkNotListedActivityOfInterest">Not listed activities
+                            of
+                            interest</label>
                     </div>
-                    <div class="form-check">
-                        <input id="chkCommunityWork" name="chkCommunityWork" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkCommunityWork">Community work</label>
-                    </div>
-                </div>
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkArtCraftActivityInstructor" name="chkArtCraftActivityInstructor" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkArtCraftActivityInstructor">Arts &amp; Craft
-                            activity instructor/assistant</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkAssistingWithFundraising" name="chkAssistingWithFundraising" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkAssistingWithFundraising">Assisting with
-                            fundraising</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkHelpingChildrenUseComputer" name="chkHelpingChildrenUseComputer" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkHelpingChildrenUseComputer">Helping children use
-                            computers</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkCharityShop" name="chkCharityShop" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkCharityShop">Charity shop</label>
+                    <div class="flex-sm-grow-1">
+                        <div class="mt-2 form-group">
+                            <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
+                                   class="form-control form-control-sm" placeholder="">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex-column form-row d-flex flex-sm-row" style="margin-left: 1px; margin-right: -1px;">
-                <div class="form-check">
-                    <input id="chkHelpChildrenRead" name="chkHelpChildrenRead" type="checkbox" class="form-check-input">
-                    <label class="form-check-label" for="chkHelpChildrenRead">Tutoring</label>
-                </div>
-                <div class="flex-sm-grow-1">
-                    <div class="mt-2 form-group mt-sm-0 ml-sm-4">
-                        <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
-                               class="form-control form-control-sm" placeholder="">
-                    </div>
-                </div>
-            </div>
-            <div class="flex-column form-row d-flex" style="margin-left: 1px; margin-right: -1px;">
-                <div class="form-check">
-                    <input id="chkNotListedActivityOfInterest" name="chkNotListedActivityOfInterest" type="checkbox"
-                           class="form-check-input">
-                    <label class="form-check-label" for="chkNotListedActivityOfInterest">Not listed activities
-                        of
-                        interest</label>
-                </div>
-                <div class="flex-sm-grow-1">
-                    <div class="mt-2 form-group">
-                        <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
-                               class="form-control form-control-sm" placeholder="">
-                    </div>
-                </div>
-            </div>
 
-            <div class="c-volunteer-form__buttons d-flex justify-content-end">
-                <button id="btnCancel" type="button"
-                        class="btn btn-secondary c-volunteer-form__button c-volunteer-form__button--cancel">
-                    <span class="">Cancel</span>
-                </button>
-                <button id="btnSave" type="button"
-                        class="ml-2 btn btn-secondary c-volunteer-form__button c-volunteer-form__button--save">
-                    <span class="">Save</span>
-                </button>
+                <div class="c-volunteer-form__buttons d-flex justify-content-end">
+                    <button id="btnCancel" type="button"
+                            class="btn btn-secondary c-volunteer-form__button c-volunteer-form__button--cancel">
+                        <span class="">Cancel</span>
+                    </button>
+                    <button id="btnSave" type="button"
+                            class="ml-2 btn btn-secondary c-volunteer-form__button c-volunteer-form__button--save">
+                        <span class="">Save</span>
+                    </button>
+                </div>
             </div>
         </form>
     </div>

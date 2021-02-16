@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="css/frontend.css">
+</head>
+
+<body>
+    <div class="mx-auto col-xl-6 col-lg-7 col-md-8 col-sm-10 c-volunteer-form">
+        <form id="volunteerForm" class="c-volunteer-form__instance" data-parsley-errors-messages-disabled>
+            <div class="c-volunteer-form__content">
+                <p class="c-volunteer-form__info fs-6">
+                    Fill in your personal details, availability, and volunteer interest
+                </p>
+                <h5 class="my-4 text-muted">Personal Details</h5>
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="txtLastName">Last Name</label>
+                        <input type="text" id="txtPersonalLastName" name="txtPersonalLastName"
+                               class="form-control form-control-sm" placeholder="Ibrahim" required="">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="txtFirstName">First Name</label>
+                        <input type="text" id="txtPersonalFirstName" name="txtPersonalFirstName"
+                               class="form-control form-control-sm" placeholder="Issa" required="">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="txtOtherName">Other Names</label>
+                        <input type="text" id="txtPersonalOtherName" name="txtPersonalOtherName"
+                               class="form-control form-control-sm" placeholder="Abdullahi">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="txtMobileNumber">Mobile Number</label>
+                        <input type="text" id="txtMobileNumber" name="txtMobileNumber"
+                               class="form-control form-control-sm" placeholder="08065594322" required="">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="txtEmailAddress">Email Address</label>
+                        <input type="email" id="txtEmailAddress" name="txtEmailAddress"
+                               class="form-control form-control-sm" placeholder="email@example.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="dtpPersonalDob">Birth Date</label>
+                        <input type="text" class="form-control form-control-sm date-control" id="dtpPersonalDob"
+                               name="dtpPersonalDob" placeholder="DD/MM/YYYY" required data-parsley-dateformat>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="ddlGender">Gender</label>
+                        <select class="custom-select custom-select-sm" name="ddlGender" id="ddlGender" required>
+                            <option selected disabled value="">Select a gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="txtAddress">Address</label>
+                    <input type="text" id="txtAddress" name="txtAddress" class="form-control form-control-sm"
+                           placeholder="Your address here">
+                </div>
+            </div>
+            <h5 class="my-4 text-muted">Availability - <small>at what times are you available for
+                    volunteering</small>
+            </h5>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <div class="form-check">
+                        <input id="chkMorningMonFri" name="chkMorningMonFri" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkMorningMonFri">Mornings (Monday - Friday)</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkEveningsMonFri" name="chkEveningsMonFri" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkEveningsMonFri">Evenings (Monday - Friday)</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkOnceAWeek" name="chkOnceAWeek" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkOnceAWeek">Once a week</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkOneTime" name="chkOneTime" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkOneTime">One time only</label>
+                    </div>
+
+                </div>
+                <div class="form-group col-6">
+                    <div class="form-check">
+                        <input id="chkAfternonsMonFri" name="chkAfternonsMonFri" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkAfternonsMonFri">Afternoons (Monday -
+                            Friday)</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkWeekends" name="chkWeekends" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkWeekends">Weekends</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkMoreThanOnceAWeek" name="chkMoreThanOnceAWeek" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkMoreThanOnceAWeek">More than once a week</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkAsNeeded" name="chkAsNeeded" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkAsNeeded">As Needed</label>
+                    </div>
+
+                </div>
+            </div>
+            <h5 class="my-4 text-muted">Volunteer Interest - <small>please tick those areas of
+                    volunteering you are
+                    interested
+                    in</small></h5>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <div class="form-check">
+                        <input id="chkSportsCoachAssistant" name="chkSportsCoachAssistant" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkSportsCoachAssistant">Sports coach/assistant</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkHelpChildrenRead" name="chkHelpChildrenRead" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkHelpChildrenRead">Helping children read or reading
+                            to them</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkMentoringTeens" name="chkMentoringTeens" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkMentoringTeens">Mentoring Teens</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkOrphanageVisiting" name="chkOrphanageVisiting" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkOrphanageVisiting">Orphanage visiting</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkCommunityWork" name="chkCommunityWork" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkCommunityWork">Community work</label>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <div class="form-check">
+                        <input id="chkArtCraftActivityInstructor" name="chkArtCraftActivityInstructor" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkArtCraftActivityInstructor">Arts &amp; Craft
+                            activity instructor/assistant</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkAssistingWithFundraising" name="chkAssistingWithFundraising" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkAssistingWithFundraising">Assisting with
+                            fundraising</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkHelpingChildrenUseComputer" name="chkHelpingChildrenUseComputer" type="checkbox"
+                               class="form-check-input">
+                        <label class="form-check-label" for="chkHelpingChildrenUseComputer">Helping children use
+                            computers</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkCharityShop" name="chkCharityShop" type="checkbox" class="form-check-input">
+                        <label class="form-check-label" for="chkCharityShop">Charity shop</label>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-column form-row d-flex flex-sm-row" style="margin-left: 1px; margin-right: -1px;">
+                <div class="form-check">
+                    <input id="chkHelpChildrenRead" name="chkHelpChildrenRead" type="checkbox" class="form-check-input">
+                    <label class="form-check-label" for="chkHelpChildrenRead">Tutoring</label>
+                </div>
+                <div class="flex-sm-grow-1">
+                    <div class="mt-2 form-group mt-sm-0 ml-sm-4">
+                        <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
+                               class="form-control form-control-sm" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="flex-column form-row d-flex" style="margin-left: 1px; margin-right: -1px;">
+                <div class="form-check">
+                    <input id="chkNotListedActivityOfInterest" name="chkNotListedActivityOfInterest" type="checkbox"
+                           class="form-check-input">
+                    <label class="form-check-label" for="chkNotListedActivityOfInterest">Not listed activities
+                        of
+                        interest</label>
+                </div>
+                <div class="flex-sm-grow-1">
+                    <div class="mt-2 form-group">
+                        <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
+                               class="form-control form-control-sm" placeholder="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-volunteer-form__buttons d-flex justify-content-end">
+                <button id="btnCancel" type="button"
+                        class="btn btn-secondary c-volunteer-form__button c-volunteer-form__button--cancel">
+                    <span class="">Cancel</span>
+                </button>
+                <button id="btnSave" type="button"
+                        class="ml-2 btn btn-secondary c-volunteer-form__button c-volunteer-form__button--save">
+                    <span class="">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/runtime.plugin-bundle.js"></script>
+    <script src="js/vendor.plugin-bundle.js"></script>
+    <script src="js/modernizr-custom.js"></script>
+    <!-- <script src="js/bootstrap-datepicker.min.js"></script> -->
+    <script src="js/frontend-index.plugin-bundle.js"></script>
+</body>
+
+</html>
