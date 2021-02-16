@@ -16,6 +16,8 @@ module.exports = (env) => {
         context: __dirname,
         target: "web",
         entry: {
+            'scholarship-frontend': './src/scholarship-frontend.ts',
+            'volunteer-frontend': './src/volunteer-frontend.ts',
             'frontend-index': './src/index-frontend.ts',
             'backend-index': './src/index-backend.ts',
             'styles': [
@@ -135,9 +137,20 @@ module.exports = (env) => {
                 ],
             }),
             new HtmlWebpackPlugin({
-                title: 'Index',
-                template: './src/pages/index.html',
-                filename: 'index.html',
+                title: 'Volunteer Form',
+                template: './src/pages/volunteer.html',
+                filename: 'volunteer.html',
+                minify: {
+                    collapseWhitespace: !isDev
+                },
+                hash: false,
+                // excludeChunks: ['styles'],
+                inject: false
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Scholarship Form',
+                template: './src/pages/scholarship.html',
+                filename: 'scholarship.html',
                 minify: {
                     collapseWhitespace: !isDev
                 },
