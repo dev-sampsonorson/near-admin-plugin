@@ -11,204 +11,508 @@
 </head>
 
 <body>
-    <div class="mx-auto col-xl-6 col-lg-7 col-md-8 col-sm-10 c-volunteer-form">
-        <form id="volunteerForm" class="c-volunteer-form__instance" data-parsley-errors-messages-disabled>
-            <div class="c-volunteer-form__content">
-                <p class="c-volunteer-form__info fs-6">
-                    Fill in your personal details, availability, and volunteer interest
+    <div class="mx-auto col-xl-6 col-lg-7 col-md-9 col-sm-11 c-scholarship-form">
+        <div id="scholarship-application-form" class="c-wizard">
+            <div class="c-wizard-nav c-wizard__nav">
+                <div data-section-name="purchases" data-section-index="0" class="c-wizard-nav__step">
+                    <div class="c-wizard-nav__indicator">
+                        <span class="c-wizard-nav__content">1</span>
+                    </div>
+                    <span class="c-wizard-nav__description">Personal Information</span>
+                </div>
+                <div class="c-wizard-nav__line"></div>
+                <div data-section-name="personal-info" data-section-index="1" class="c-wizard-nav__step">
+                    <div class="c-wizard-nav__indicator">
+                        <span class="c-wizard-nav__content">2</span>
+                    </div>
+                    <span class="c-wizard-nav__description">Family Information</span>
+                </div>
+                <div class="c-wizard-nav__line"></div>
+                <div data-section-name="guardian-info" data-section-index="2" class="c-wizard-nav__step">
+                    <div class="c-wizard-nav__indicator">
+                        <span class="c-wizard-nav__content">3</span>
+                    </div>
+                    <span class="c-wizard-nav__description">Documents &amp; Reference</span>
+                </div>
+                <div class="c-wizard-nav__line"></div>
+                <div data-section-name="done" data-section-index="3" class="c-wizard-nav__step">
+                    <div class="c-wizard-nav__indicator">
+                        <span class="c-wizard-nav__content">4</span>
+                    </div>
+                    <span class="c-wizard-nav__description">Done</span>
+                </div>
+            </div>
+        </div>
+        <form id="volunteerForm" class="c-scholarship-form__instance" data-parsley-errors-messages-disabled>
+            <div class="py-4 c-scholarship-form__header">
+                <h2>Scholarship Application Form</h2>
+                <p class="lead c-scholarship-form__info">
+                    Provide your personal, bank account, education, family information. Including necessary supporting
+                    documents.
                 </p>
-                <h5 class="my-4 text-muted">Personal Details</h5>
+            </div>
+            <div class="c-scholarship-form__content">
+                <h5 class="text-muted">Personal</h5>
                 <div class="form-row">
-                    <div class="form-group col-4">
+                    <div class="col-12 form-group col-sm-4">
                         <label for="txtLastName">Last Name</label>
-                        <input type="text" id="txtPersonalLastName" name="txtPersonalLastName"
-                               class="form-control form-control-sm" placeholder="Ibrahim" required="">
+                        <input type="text" id="txtLastName" name="txtLastName" class="form-control form-control-sm"
+                               placeholder="Ibrahim" required="">
                     </div>
-                    <div class="form-group col-4">
+                    <div class="col-12 form-group col-sm-4 ">
                         <label for="txtFirstName">First Name</label>
-                        <input type="text" id="txtPersonalFirstName" name="txtPersonalFirstName"
-                               class="form-control form-control-sm" placeholder="Issa" required="">
+                        <input type="text" id="txtFirstName" name="txtFirstName" class="form-control form-control-sm"
+                               placeholder="Issa" required="">
                     </div>
-                    <div class="form-group col-4">
+                    <div class="col-12 form-group col-sm-4">
                         <label for="txtOtherName">Other Names</label>
-                        <input type="text" id="txtPersonalOtherName" name="txtPersonalOtherName"
-                               class="form-control form-control-sm" placeholder="Abdullahi">
+                        <input type="text" id="txtOtherName" name="txtOtherName" class="form-control form-control-sm"
+                               placeholder="Abdullahi">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-6">
-                        <label for="txtMobileNumber">Mobile Number</label>
-                        <input type="text" id="txtMobileNumber" name="txtMobileNumber"
-                               class="form-control form-control-sm" placeholder="08065594322" required="">
+                    <div class="form-group col-12 col-sm-4">
+                        <label for="txtNationalIdNumber">National ID Number</label>
+                        <input type="text" id="txtNationalIdNumber" name="txtNationalIdNumber"
+                               class="form-control form-control-sm" placeholder="">
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-12 col-sm-4">
+                        <label for="txtBirthPlace">Birth Place</label>
+                        <input type="text" id="txtBirthPlace" name="txtBirthPlace" class="form-control form-control-sm"
+                               placeholder="Abuja, Nigeria">
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                        <label for="dtpBirthDate">Birth Date</label>
+                        <input type="text" class="form-control form-control-sm date-control" id="dtpBirthDate"
+                               name="dtpBirthDate" placeholder="DD/MM/YYYY" required data-parsley-dateformat>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-sm-4">
                         <label for="txtEmailAddress">Email Address</label>
-                        <input type="email" id="txtEmailAddress" name="txtEmailAddress"
+                        <input type="text" id="txtEmailAddress" name="txtEmailAddress"
                                class="form-control form-control-sm" placeholder="email@example.com">
                     </div>
+                    <div class="form-group col-12 col-sm-4">
+                        <label for="txtMobileNumber">Mobile</label>
+                        <input type="text" id="txtMobileNumber" name="txtMobileNumber"
+                               class="form-control form-control-sm" placeholder="08031213223">
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                        <label for="txtParentsPhone">Parent's Phone</label>
+                        <input type="text" id="txtParentsPhone" name="txtParentsPhone"
+                               class="form-control form-control-sm" placeholder="08031213223">
+                    </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-6">
-                        <label for="dtpPersonalDob">Birth Date</label>
-                        <input type="text" class="form-control form-control-sm date-control" id="dtpPersonalDob"
-                               name="dtpPersonalDob" placeholder="DD/MM/YYYY" required data-parsley-dateformat>
+                    <div class="mb-2 col-12">
+                        Did you get scholarship from our foundation last year?
                     </div>
-                    <div class="form-group col-6">
-                        <label for="ddlGender">Gender</label>
-                        <select class="custom-select custom-select-sm" name="ddlGender" id="ddlGender" required>
-                            <option selected disabled value="">Select a gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
+                    <div class="mb-3 col-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="rbLastYearScholarshipYes"
+                                   name="rbLastYearScholarship" value="yes">
+                            <label class="form-check-label" for="rbLastYearScholarshipYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="rbLastYearScholarshipNo"
+                                   name="rbLastYearScholarship" value="yes">
+                            <label class="form-check-label" for="rbLastYearScholarshipNo">No</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-12">
-                    <label for="txtAddress">Address</label>
-                    <input type="text" id="txtAddress" name="txtAddress" class="form-control form-control-sm"
-                           placeholder="Your address here">
+                <div class="form-row">
+                    <div class="mb-2 col-12">
+                        Type of scholarship required
+                    </div>
+                    <div class="mb-3 col-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="chkScholarshipReqAccomodation"
+                                   name="chkScholarshipReqAccomodation" value="accomodation">
+                            <label class="form-check-label" for="chkScholarshipReqAccomodation">Accomodation</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="chkScholarshipReqTuition"
+                                   name="chkScholarshipReqTuition" value="tuition">
+                            <label class="form-check-label" for="chkScholarshipReqTuition">Tuition</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="chkScholarshipReqMonthlyAllowance"
+                                   name="chkScholarshipReqMonthlyAllowance" value="monthly-allowance">
+                            <label class="form-check-label" for="chkScholarshipReqMonthlyAllowance">Monthly
+                                Allowance</label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <h5 class="my-4 text-muted">Availability - <small>at what times are you available for
-                    volunteering</small>
-            </h5>
-            <div class="form-row">
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkMorningMonFri" name="chkMorningMonFri" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkMorningMonFri">Mornings (Monday - Friday)</label>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="txtFileId">File ID</label>
+                        <input type="text" id="txtFileId" name="txtFileId" class="form-control form-control-sm"
+                               placeholder="">
                     </div>
-                    <div class="form-check">
-                        <input id="chkEveningsMonFri" name="chkEveningsMonFri" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkEveningsMonFri">Evenings (Monday - Friday)</label>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="txtAddress" class="form-label">Address</label>
+                        <textarea class="form-control" id="txtAddress" name="txtAddress" rows="3"></textarea>
                     </div>
-                    <div class="form-check">
-                        <input id="chkOnceAWeek" name="chkOnceAWeek" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkOnceAWeek">Once a week</label>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="txtHowKnowFoundation" class="form-label">How did you know about our
+                            foundation?</label>
+                        <textarea class="form-control" id="txtHowKnowFoundation" name="txtHowKnowFoundation"
+                                  rows="3"></textarea>
                     </div>
-                    <div class="form-check">
-                        <input id="chkOneTime" name="chkOneTime" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkOneTime">One time only</label>
+                </div>
+                <h5 class="text-muted">Bank Account</h5>
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtBankName">Bank Name</label>
+                        <input type="text" id="txtBankName" name="txtBankName" class="form-control form-control-sm"
+                               placeholder="First Bank" required="">
                     </div>
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtBankBranch">Branch Name</label>
+                        <input type="text" id="txtBankBranch" name="txtBankBranch" class="form-control form-control-sm"
+                               placeholder="Maitama" required="">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtAccountNumber">Account Number</label>
+                        <input type="text" id="txtAccountNumber" name="txtAccountNumber"
+                               class="form-control form-control-sm" placeholder="0012000000" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtIbanNumber">IBAN Number</label>
+                        <input type="text" id="txtIbanNumber" name="txtIbanNumber" class="form-control form-control-sm"
+                               placeholder="" required="">
+                    </div>
+                </div>
+                <h5 class="mt-4 text-muted">Educational Background</h5>
+                <div class="form-row">
+                    <div class="mb-2 col-12">
+                        Level of Education
+                    </div>
+                    <div class="mb-3 col-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="chkEduPrimary" name="chkEduPrimary"
+                                   value="primary">
+                            <label class="form-check-label" for="chkEduPrimary">Primary</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="chkEduSecondary" name="chkEduSecondary"
+                                   value="secondary">
+                            <label class="form-check-label" for="chkEduSecondary">Secondary</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="chkScholarshipReqMonthlyAllowance"
+                                   name="chkScholarshipReqMonthlyAllowance" value="monthly-allowance">
+                            <label class="form-check-label" for="chkScholarshipReqMonthlyAllowance">University</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-4">
+                        <label for="txtEduSchoolName">School Name</label>
+                        <input type="text" id="txtEduSchoolName" name="txtEduSchoolName"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-4">
+                        <label for="txtEduDepartment">Department</label>
+                        <input type="text" id="txtEduDepartment" name="txtEduDepartment"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-4">
+                        <label for="txtEduClass">Class</label>
+                        <input type="text" id="txtEduClass" name="txtEduClass" class="form-control form-control-sm"
+                               placeholder="" required="">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtEduCity">City (Local Government)</label>
+                        <input type="text" id="txtEduCity" name="txtEduCity" class="form-control form-control-sm"
+                               placeholder="" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtEduState">State</label>
+                        <input type="text" id="txtEduState" name="txtEduState" class="form-control form-control-sm"
+                               placeholder="" required="">
+                    </div>
+                </div>
+                <h5 class="mt-4 text-muted">Family Information</h5>
+                <div class="form-row">
+                    <div class="col-12 col-sm-6">
+                        <div class="flex-column d-flex">
+                            <h6 class="mb-4 uppercase">Mother</h6>
+                            <div class="form-group">
+                                <label for="txtFamilyMotherName">Name</label>
+                                <input type="text" id="txtFamilyMotherName" name="txtFamilyMotherName"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyMotherAliveDeceased">Alive/Deceased</label>
+                                <input type="text" id="txtFamilyMotherAliveDeceased" name="txtFamilyMotherAliveDeceased"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyMotherOccupation">Occupation</label>
+                                <input type="text" id="txtFamilyMotherOccupation" name="txtFamilyMotherOccupation"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyMotherIncome">Monthly Income</label>
+                                <input type="text" id="txtFamilyMotherIncome" name="txtFamilyMotherIncome"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyMotherCity">City</label>
+                                <input type="text" id="txtFamilyMotherCity" name="txtFamilyMotherCity"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyMotherState">State (Local Government)</label>
+                                <input type="text" id="txtFamilyMotherState" name="txtFamilyMotherState"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyMotherMobileNumber">Mobile Number</label>
+                                <input type="text" id="txtFamilyMotherMobileNumber" name="txtFamilyMotherMobileNumber"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
 
-                </div>
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkAfternonsMonFri" name="chkAfternonsMonFri" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkAfternonsMonFri">Afternoons (Monday -
-                            Friday)</label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input id="chkWeekends" name="chkWeekends" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkWeekends">Weekends</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkMoreThanOnceAWeek" name="chkMoreThanOnceAWeek" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkMoreThanOnceAWeek">More than once a week</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkAsNeeded" name="chkAsNeeded" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkAsNeeded">As Needed</label>
-                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="flex-column d-flex">
+                            <h6 class="mb-4 uppercase">Father</h6>
+                            <div class="form-group">
+                                <label for="txtFamilyFatherName">Name</label>
+                                <input type="text" id="txtFamilyFatherName" name="txtFamilyFatherName"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyFatherAliveDeceased">Alive/Deceased</label>
+                                <input type="text" id="txtFamilyFatherAliveDeceased" name="txtFamilyFatherAliveDeceased"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyFatherOccupation">Occupation</label>
+                                <input type="text" id="txtFamilyFatherOccupation" name="txtFamilyFatherOccupation"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyFatherIncome">Monthly Income</label>
+                                <input type="text" id="txtFamilyFatherIncome" name="txtFamilyFatherIncome"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyFatherCity">City</label>
+                                <input type="text" id="txtFamilyFatherCity" name="txtFamilyFatherCity"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyFatherState">State (Local Government)</label>
+                                <input type="text" id="txtFamilyFatherState" name="txtFamilyFatherState"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFamilyFatherMobileNumber">Mobile Number</label>
+                                <input type="text" id="txtFamilyFatherMobileNumber" name="txtFamilyFatherMobileNumber"
+                                       class="form-control form-control-sm" placeholder="" required="">
+                            </div>
 
-                </div>
-            </div>
-            <h5 class="my-4 text-muted">Volunteer Interest - <small>please tick those areas of
-                    volunteering you are
-                    interested
-                    in</small></h5>
-            <div class="form-row">
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkSportsCoachAssistant" name="chkSportsCoachAssistant" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkSportsCoachAssistant">Sports coach/assistant</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkHelpChildrenRead" name="chkHelpChildrenRead" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkHelpChildrenRead">Helping children read or reading
-                            to them</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkMentoringTeens" name="chkMentoringTeens" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkMentoringTeens">Mentoring Teens</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkOrphanageVisiting" name="chkOrphanageVisiting" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkOrphanageVisiting">Orphanage visiting</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkCommunityWork" name="chkCommunityWork" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkCommunityWork">Community work</label>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group col-6">
-                    <div class="form-check">
-                        <input id="chkArtCraftActivityInstructor" name="chkArtCraftActivityInstructor" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkArtCraftActivityInstructor">Arts &amp; Craft
-                            activity instructor/assistant</label>
+                <h5 class="mt-4 text-muted">Siblings Information</h5>
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtSiblingNumber">Number of Siblings</label>
+                        <input type="text" id="txtSiblingNumber" name="txtSiblingNumber"
+                               class="form-control form-control-sm" placeholder="" required="">
                     </div>
-                    <div class="form-check">
-                        <input id="chkAssistingWithFundraising" name="chkAssistingWithFundraising" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkAssistingWithFundraising">Assisting with
-                            fundraising</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkHelpingChildrenUseComputer" name="chkHelpingChildrenUseComputer" type="checkbox"
-                               class="form-check-input">
-                        <label class="form-check-label" for="chkHelpingChildrenUseComputer">Helping children use
-                            computers</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkCharityShop" name="chkCharityShop" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="chkCharityShop">Charity shop</label>
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtSiblingPrimarySchNumber">The Number of Those in Primary</label>
+                        <input type="text" id="txtSiblingPrimarySchNumber" name="txtSiblingPrimarySchNumber"
+                               class="form-control form-control-sm" placeholder="" required="">
                     </div>
                 </div>
-            </div>
-            <div class="flex-column form-row d-flex flex-sm-row" style="margin-left: 1px; margin-right: -1px;">
-                <div class="form-check">
-                    <input id="chkHelpChildrenRead" name="chkHelpChildrenRead" type="checkbox" class="form-check-input">
-                    <label class="form-check-label" for="chkHelpChildrenRead">Tutoring</label>
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtSiblingSecondarySchNumber">The Number of Those in Secondary</label>
+                        <input type="text" id="txtSiblingSecondarySchNumber" name="txtSiblingSecondarySchNumber"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtSiblingUniversityNumber">The Number of Those in University</label>
+                        <input type="text" id="txtSiblingUniversityNumber" name="txtSiblingUniversityNumber"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
                 </div>
-                <div class="flex-sm-grow-1">
-                    <div class="mt-2 form-group mt-sm-0 ml-sm-4">
-                        <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
+                <hr class="my-4">
+                <div class="form-row">
+                    <div class="mb-2 col-12">
+                        Do you want to participate in our foundation's activities as a volunteer?
+                    </div>
+                    <div class="mb-3 col-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="rbVolunteerParticipationYes"
+                                   name="rbVolunteerParticipation" value="yes">
+                            <label class="form-check-label" for="rbVolunteerParticipationYes">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="rbVolunteerParticipationNo"
+                                   name="rbVolunteerParticipation" value="yes">
+                            <label class="form-check-label" for="rbVolunteerParticipationNo">No</label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="mt-4 text-muted">Documents Required</h5>
+                <div class="form-row">
+                    <div class="col-12 col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqRequestLetter"
+                                       name="chkDocReqRequestLetter" value="request-letter">
+                                <label class="form-check-label" for="chkDocReqRequestLetter">Request
+                                    Letter</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqAdmissionLetter"
+                                       name="chkDocReqAdmissionLetter" value="admission-letter">
+                                <label class="form-check-label" for="chkDocReqAdmissionLetter">Admission Letter</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqJambResult"
+                                       name="chkDocReqJambResult" value="jamb-result">
+                                <label class="form-check-label" for="chkDocReqJambResult">JAMB
+                                    Result</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqWaecResult"
+                                       name="chkDocReqWaecResult" value="waec-result">
+                                <label class="form-check-label" for="chkDocReqWaecResult">WAEC
+                                    Result</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="d-flex flex-column">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqMatricNumber"
+                                       name="chkDocReqMatricNumber" value="matriculation-number">
+                                <label class="form-check-label" for="chkDocReqMatricNumber">Matriculation
+                                    No.</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqIndigeneCert"
+                                       name="chkDocReqIndigeneCert" value="indigene-cert">
+                                <label class="form-check-label" for="chkDocReqIndigeneCert">Indigene
+                                    Certificate</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqBirthCert"
+                                       name="chkDocReqBirthCert" value="birth-cert">
+                                <label class="form-check-label" for="chkDocReqBirthCert">Birth
+                                    Certificate</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="chkDocReqValidIdCard"
+                                       name="chkDocReqValidIdCard" value="valid-id-card">
+                                <label class="form-check-label" for="chkDocReqValidIdCard">Valid ID
+                                    Card</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="form-row">
+                    <div class="mb-2 col-12">
+                        Why are you applying for the scholarship?
+                    </div>
+                    <div class="mb-3 col-12">
+                        <div class="form-group">
+                            <textarea class="form-control" id="txtWhyScholarship" name="txtWhyScholarship"
+                                      rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="mt-4 text-muted">Reference Information</h5>
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-4">
+                        <label for="txtRefLastName">Last Name</label>
+                        <input type="text" id="txtRefLastName" name="txtRefLastName"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-4">
+                        <label for="txtRefFirstName">First Name</label>
+                        <input type="text" id="txtRefFirstName" name="txtRefFirstName"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-4">
+                        <label for="txtRefOtherName">Other Names</label>
+                        <input type="text" id="txtRefOtherName" name="txtRefOtherName"
                                class="form-control form-control-sm" placeholder="">
                     </div>
                 </div>
-            </div>
-            <div class="flex-column form-row d-flex" style="margin-left: 1px; margin-right: -1px;">
-                <div class="form-check">
-                    <input id="chkNotListedActivityOfInterest" name="chkNotListedActivityOfInterest" type="checkbox"
-                           class="form-check-input">
-                    <label class="form-check-label" for="chkNotListedActivityOfInterest">Not listed activities
-                        of
-                        interest</label>
-                </div>
-                <div class="flex-sm-grow-1">
-                    <div class="mt-2 form-group">
-                        <input type="text" id="txtInterestTutoringDetail" name="txtInterestTutoringDetail"
-                               class="form-control form-control-sm" placeholder="">
+                <div class="form-row">
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtRefOccupation">Occupation</label>
+                        <input type="text" id="txtRefOccupation" name="txtRefOccupation"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
+                    <div class="col-12 form-group col-sm-6">
+                        <label for="txtRefPosition">Position</label>
+                        <input type="text" id="txtRefPosition" name="txtRefPosition"
+                               class="form-control form-control-sm" placeholder="" required="">
                     </div>
                 </div>
-            </div>
+                <div class="form-row">
+                    <div class="col-12 form-group">
+                        <label for="txtRefAddress" class="form-label">Address</label>
+                        <textarea class="form-control" id="txtRefAddress" name="txtRefAddress" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 form-group">
+                        <label for="txtRefPhoneNumber">Phone Number</label>
+                        <input type="text" id="txtRefPhoneNumber" name="txtRefPhoneNumber"
+                               class="form-control form-control-sm" placeholder="" required="">
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="form-row">
+                    <div class="col-12">
+                        <p class="text-muted">I testify that the provided information above is correct. I accept the
+                            cancellation of my scholarship and any legal action against me in case of any false
+                            information.</p>
 
-            <div class="c-volunteer-form__buttons d-flex justify-content-end">
-                <button id="btnCancel" type="button"
-                        class="btn btn-secondary c-volunteer-form__button c-volunteer-form__button--cancel">
-                    <span class="">Cancel</span>
-                </button>
-                <button id="btnSave" type="button"
-                        class="ml-2 btn btn-secondary c-volunteer-form__button c-volunteer-form__button--save">
-                    <span class="">Save</span>
-                </button>
+                        <p class="text-muted">I willingly marked the above options for contributing the welfare actions
+                            of NTIC
+                            Foundation. I will fullfil my responsibilities regarding my choices.</p>
+                    </div>
+                    <div class="mb-3 col-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="chkIAgree" name="chkIAgree"
+                                   value="accomodation">
+                            <label class="form-check-label" for="chkIAgree">I agree</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-4 c-scholarship-form__buttons d-flex justify-content-end">
+                    <button id="btnCancel" type="button"
+                            class="btn btn-secondary c-scholarship-form__button c-scholarship-form__button--cancel">
+                        <span class="">Cancel</span>
+                    </button>
+                    <button id="btnSave" type="button"
+                            class="ml-2 btn btn-secondary c-scholarship-form__button c-scholarship-form__button--save">
+                        <span class="">Save</span>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
