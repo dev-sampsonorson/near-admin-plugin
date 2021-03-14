@@ -265,3 +265,24 @@ html {
 .radio-control__error .form-check-label {
     color: #dc3545;
 }
+
+.is-invalid.is-group-wrapper {
+    border-color: #dc3545;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.2rem;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    // box-shadow: 0 0 0 0.2rem rgb(220 53 69 / 25%);
+    // background-color: rgb(220 53 69 / 25%);
+}
+
+.is-invalid.is-group-title {
+    color: #dc3545 !important;
+}
+
+.stick-to-bottom {
+    position: fixed;
+    bottom: 0px;
+}

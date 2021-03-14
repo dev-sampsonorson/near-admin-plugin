@@ -9,7 +9,150 @@
         private const DELETE = 1;
 
         private static $tables = array(
-            
+            BaseRepository::VOLUNTEER_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'firstName' => 'tinytext NOT NULL',
+                    'lastName' => 'tinytext NOT NULL',
+                    'otherNames' => 'tinytext NOT NULL',
+                    'mobileNumber' => 'tinytext NOT NULL',
+                    'emailAddress' => 'tinytext NOT NULL',
+                    'birthDate' => 'DATETIME NOT NULL',
+                    'gender' => 'tinytext NOT NULL',
+                    'address' => 'tinytext NOT NULL',
+                    'availability' => 'varchar(1000) NOT NULL',
+                    'volunteerInterest' => 'varchar(1000) NOT NULL',
+                    'volunteerInterestTutoring' => 'varchar(1000) NOT NULL',
+                    'volunteerInterestOther' => 'varchar(1000) NOT NULL',
+                    'approved' => 'boolean NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'firstName' => 'tinytext NOT NULL',
+                    'lastName' => 'tinytext NOT NULL',
+                    'otherNames' => 'tinytext NOT NULL',
+                    'nationalIdNumber' => 'tinytext NOT NULL',
+                    'birthPlace' => 'tinytext NOT NULL',
+                    'birthDate' => 'DATETIME NOT NULL',
+                    'emailAddress' => 'tinytext NOT NULL',
+                    'mobileNumber' => 'tinytext NOT NULL',
+                    'parentNumber' => 'tinytext NOT NULL',
+                    'gotScholarshipLastYear' => 'boolean NOT NULL',
+                    'requiredScholarships' => 'varchar(1000) NOT NULL',
+                    'fileId' => 'varchar(500) NOT NULL',
+                    'address' => 'varchar(2000) NOT NULL',
+                    'howKnowFoundation' => 'varchar(2000) NOT NULL',
+                    'volunteerInterest' => 'boolean NOT NULL',
+                    'whyScholarship' => 'varchar(2000) NOT NULL',
+                    'iAgree' => 'boolean NOT NULL',
+                    'approved' => 'boolean NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_BANK_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'scholarshipId' => 'int(11) NOT NULL',
+                    'bankName' => 'tinytext NOT NULL',
+                    'branchName' => 'tinytext NOT NULL',
+                    'accountNumber' => 'tinytext NOT NULL',
+                    'ibanNumber' => 'tinytext NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_EDUCATION_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'scholarshipId' => 'int(11) NOT NULL',
+                    'level' => 'varchar(200) NOT NULL',
+                    'schoolName' => 'tinytext NOT NULL',
+                    'department' => 'tinytext NOT NULL',
+                    'class' => 'tinytext NOT NULL',
+                    'city' => 'tinytext NOT NULL',
+                    'state' => 'tinytext NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_FATHER_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'scholarshipId' => 'int(11) NOT NULL',
+                    'name' => 'varchar(1000) NOT NULL',
+                    'aliveOrDeceased' => 'tinytext NOT NULL',
+                    'occupation' => 'varchar(500) NOT NULL',
+                    'monthlyIncome' => 'double(12,2) NOT NULL',
+                    'city' => 'tinytext NOT NULL',
+                    'state' => 'tinytext NOT NULL',
+                    'mobileNumber' => 'tinytext NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_MOTHER_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'scholarshipId' => 'int(11) NOT NULL',
+                    'name' => 'varchar(1000) NOT NULL',
+                    'aliveOrDeceased' => 'tinytext NOT NULL',
+                    'occupation' => 'varchar(500) NOT NULL',
+                    'monthlyIncome' => 'double(12,2) NOT NULL',
+                    'city' => 'tinytext NOT NULL',
+                    'state' => 'tinytext NOT NULL',
+                    'mobileNumber' => 'tinytext NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_SIBLINGS_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'scholarshipId' => 'int(11) NOT NULL',
+                    'nSiblings' => 'int NOT NULL',
+                    'nSiblingsInPrimary' => 'int NOT NULL',
+                    'nSiblingsInSecondary' => 'int NOT NULL',
+                    'nSiblingsInUniversity' => 'int NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_DOCUMENTS_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'scholarshipId' => 'int(11) NOT NULL',
+                    'requestLetter' => 'varchar(500) NOT NULL',
+                    'admissionLetter' => 'varchar(500) NOT NULL',
+                    'jambResult' => 'varchar(500) NOT NULL',
+                    'waecResult' => 'varchar(500) NOT NULL',
+                    'matriculationNumber' => 'varchar(500) NOT NULL',
+                    'indigeneCertificate' => 'varchar(500) NOT NULL',
+                    'birthCertificate' => 'varchar(500) NOT NULL',
+                    'validIdCard' => 'varchar(500) NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
+            BaseRepository::SCHOLARSHIP_REFERENCE_TABLE_NAME => array(
+                'primary_key' => 'id',
+                'columns' => array(
+                    'id' => 'int(11) NOT NULL AUTO_INCREMENT',
+                    'scholarshipId' => 'int(11) NOT NULL',
+                    'lastName' => 'tinytext NOT NULL',
+                    'firstName' => 'tinytext NOT NULL',
+                    'otherNames' => 'tinytext NOT NULL',
+                    'occupation' => 'tinytext NOT NULL',
+                    'position' => 'tinytext NOT NULL',
+                    'address' => 'varchar(2000) NOT NULL',
+                    'phoneNumber' => 'tinytext NOT NULL',
+                    'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'
+                )
+            ),
         );
 
         public static function activate() {

@@ -8,16 +8,14 @@ interface Element {
 interface JQuery {
     parsley(options?: any): any;
     datepicker(options?: any): any;
+    alert(options?: any): any;
 }
 
 
 declare const frontend_script_config: {
     publicKey: string;
     ajaxRequestUrl: string;
-    getExamListNonce: string;
-    saveApplicationNonce: string;
-    generatePaymentRefNonce: string;
-    verifyTransactionNonce: string;
+    // getExamListNonce: string;
 };
 
 declare const backend_script_config: {
@@ -26,3 +24,5 @@ declare const backend_script_config: {
 };
 
 declare const PaystackPop: any;
+
+declare var window: Window;

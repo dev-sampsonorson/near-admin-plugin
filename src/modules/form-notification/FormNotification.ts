@@ -39,4 +39,24 @@ export default class FormNotification {
         this.containerEl.classList.add('d-none');
     }
 
+    error(message: string): void {
+        Object.values(NotificationStatus).forEach((item, index) => {
+            this.containerEl.classList.remove(item);
+        });
+
+        this.messageEl.innerHTML = message;
+        this.containerEl.classList.remove('d-none');
+        this.containerEl.classList.add('show', NotificationStatus.Danger);
+    }
+
+    success(message: string): void {
+        Object.values(NotificationStatus).forEach((item, index) => {
+            this.containerEl.classList.remove(item);
+        });
+
+        this.messageEl.innerHTML = message;
+        this.containerEl.classList.remove('d-none');
+        this.containerEl.classList.add('show', NotificationStatus.Success);
+    }
+
 }

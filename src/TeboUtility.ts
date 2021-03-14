@@ -1,3 +1,5 @@
+import { fdatasync } from "fs";
+
 export interface ICountry {
     name: string;
     code: string;
@@ -11,10 +13,47 @@ export interface IState {
 
 export default class TeboUtility {
 
+    static objectToFormData(o): FormData {
+        const formData = new FormData();
+
+        Object.keys(o).forEach(key => formData.append(key, o[key]));
+
+        return formData;
+    }
+
     static getQueryString(params, appendSeparator: boolean = false): string {
-        return (appendSeparator ? '?' : '') +  Object.keys(params).map(key => {
+        return (appendSeparator ? '?' : '') + Object.keys(params).map(key => {
             return `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`;
         }).join('');
+    }
+    static isObject(arg) {
+        return arg !== null && typeof arg === 'object';
+    }
+
+    static isBoolean(arg) {
+        return typeof arg === 'boolean';
+    }
+
+    static isNumber(arg) {
+        return typeof arg === 'number';
+    }
+
+    static isString(arg) {
+        return typeof arg === 'string';
+    }
+
+    static isFunction(arg) {
+        return typeof arg === 'function';
+    }
+
+    static isArray(arg) {
+        if (typeof Array.isArray === 'undefined') {
+            Array.isArray = function (obj: any): obj is any[] {
+                return Object.prototype.toString.call(obj) === '[object Array]';
+            }
+        }
+
+        return Array.isArray(arg);
     }
     static isChrome() {
         return /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);

@@ -70,24 +70,29 @@
     /*
      * Entities
      */
-    require_once(WB_PLUGIN_PATH . 'Inc/Entity/Exam.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Entity/Student.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Entity/Guardian.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Entity/PurchaseHeader.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Entity/PurchaseItem.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Entity/PurchaseReport.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Entity/PageResult.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/Volunteer.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/Scholarship.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/ScholarshipBank.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/ScholarshipDocument.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/ScholarshipEducation.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/ScholarshipFather.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/ScholarshipMother.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/ScholarshipReference.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Entity/ScholarshipSibling.php');
 
     /*
      * Repository
      */
-    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ExamRepository.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Repository/StudentRepository.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Repository/GuardianRepository.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Repository/PurchaseHeaderRepository.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Repository/PurchaseItemRepository.php');
-    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ReportRepository.php');
-
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/VolunteerRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipBankRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipEducationRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipFatherRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipMotherRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipSiblingRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipDocumentRepo.php');
+    require_once(WB_PLUGIN_PATH . 'Inc/Repository/ScholarshipReferenceRepo.php');
+    
     /*
      * Validators
      */
@@ -102,12 +107,12 @@
     require_once(WB_MODULES_PATH . 'ManagementCenter/Controllers/ManagementCenterController.php');
 
     // Application Form Module
-    require_once(WB_MODULES_PATH . 'ApplicationForm/Validators/StudentValidator.php');
+    /* require_once(WB_MODULES_PATH . 'ApplicationForm/Validators/StudentValidator.php');
     require_once(WB_MODULES_PATH . 'ApplicationForm/Validators/PurchaseHeaderValidator.php');
     require_once(WB_MODULES_PATH . 'ApplicationForm/Validators/PurchaseItemValidator.php');
     require_once(WB_MODULES_PATH . 'ApplicationForm/Validators/GuardianValidator.php');
     require_once(WB_MODULES_PATH . 'ApplicationForm/Callbacks/ApplicationFormCallbacks.php');
-    require_once(WB_MODULES_PATH . 'ApplicationForm/Controllers/ApplicationFormController.php');
+    require_once(WB_MODULES_PATH . 'ApplicationForm/Controllers/ApplicationFormController.php'); */
 
     // Initialization
     require_once(WB_PLUGIN_PATH . 'Inc/Init.php');
@@ -122,3 +127,109 @@
             Init::register_services();
         }
     });
+    
+    $scholorshipRepo = new ScholarshipRepo();
+    $scholarship = new Scholarship(array(
+        "id" => 1,
+        "firstName" => "Alice",
+        "lastName" => "Doe",
+        "otherNames" => "Fish",
+        "nationalIdNumber" => "094394903",
+        "birthPlace" => "Abuja",
+        "birthDate" => Helper::toDateTimeFromString("2021-12-30", WB_DATE_FORMAT),
+        "emailAddress" => "example@email.com",
+        "mobileNumber" => "09023223432",
+        "parentNumber" => "09023223432",
+        "gotScholarshipLastYear" => 0,
+        "requiredScholarships" => "chkScholarshipReqAccomodation,chkScholarshipReqTuition,chkScholarshipReqMonthlyAllowance",
+        "fileId" => "00000",
+        "address" => "Address 1",
+        "howKnowFoundation" => "Internet",
+        "volunteerInterest" => "",
+        "whyScholarship" => "Love",
+        "iAgree" => 1,
+        "approved" => 0,
+
+        "__scholarshipBank" => array(
+            // "id" => 3,
+            "scholarshipId" => 1,
+            "bankName" => "Oceanic",
+            "branchName" => "Maitama",
+            "accountNumber" => "094394903",
+            "ibanNumber" => "00001112"
+        ),
+        "__scholarshipEducation" => array(
+            // "id" => 3,
+            "scholarshipId" => 1,
+            "level" => "chkEduPrimary,chkEduUniversity",
+            "schoolName" => "University of Abuja",
+            "department" => "Social Sciences",
+            "class" => "200L",
+            "city" => "Abuja",
+            "state" => "FCT",
+        ),
+        "__scholarshipFather" => array(
+            // "id" => 1,
+            "scholarshipId" => 1,
+            "name" => "Fred Akara",
+            "aliveOrDeceased" => "alive",
+            "occupation" => "Doctor",
+            "monthlyIncome" => 300000,
+            "city" => "Abuja",
+            "state" => "FCT",
+            "mobileNumber" => "09033433266",
+        ),
+        "__scholarshipMother" => array(
+            // "id" => 1,
+            "scholarshipId" => 1,
+            "name" => "Mama Agada",
+            "aliveOrDeceased" => "alive",
+            "occupation" => "Nurse",
+            "monthlyIncome" => 170000.50,
+            "city" => "Aba",
+            "state" => "Abia",
+            "mobileNumber" => "09033433266",
+        ),
+        "__scholarshipSibling" => array(
+            // "id" => 2,
+            "scholarshipId" => 1,
+            "nSiblings" => 5,
+            "nSiblingsInPrimary" => 1,
+            "nSiblingsInSecondary" => 1,
+            "nSiblingsInUniversity" => 3,
+        ),
+        "__scholarshipDocument" => array(
+            // "id" => 1,
+            "scholarshipId" => 1,
+            "requestLetter" => "requestLetterUpdated.pdf",
+            "admissionLetter" => "admissionLetter.pdf",
+            "jambResult" => "jambResult.pdf",
+            "waecResult" => "waecResult.pdf",
+            "matriculationNumber" => "matriculationNumber.pdf",
+            "indigeneCertificate" => "indigeneCertificate.pdf",
+            "birthCertificate" => "birthCertificate.pdf",
+            "validIdCard" => "validIdCard.pdf",
+        ),
+        "__scholarshipReference" => array(
+            // "id" => 1,
+            "scholarshipId" => 1,
+            "lastName" => "Kalu",
+            "firstName" => "Victor",
+            "otherNames" => "Ebere",
+            "occupation" => "Accountant",
+            "position" => "Chief Accountant",
+            "address" => "Gwarinpa",
+            "phoneNumber" => "08034483893",
+        ),
+    ));
+    $scholorshipRepo->update($scholarship);
+    // print_r($scholorshipRepo->update($scholarship));
+    echo "<pre>";
+    print_r($scholorshipRepo->getById(1));
+    echo "</pre>";
+    
+    /*  */
+
+    /* $myArray = array('key' => NULL);
+    echo isset($myArray['key']) ? 'Yes' : 'No'; */
+    exit();

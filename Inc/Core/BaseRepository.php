@@ -5,12 +5,16 @@
      */
 
     abstract class BaseRepository {
-        
-        /*public const EXAM_TABLE_NAME = 'galaxy_exam';
-        public const PURCHASE_HEADER_TABLE_NAME = 'galaxy_purchase_header';
-        public const PURCHASE_ITEM_TABLE_NAME = 'galaxy_purchase_item';
-        public const STUDENT_TABLE_NAME = 'galaxy_student';
-        public const GUARDIAN_TABLE_NAME = 'galaxy_guardian';*/
+
+        public const VOLUNTEER_TABLE_NAME = 'near_volunteer';
+        public const SCHOLARSHIP_TABLE_NAME = 'near_scholarship';
+        public const SCHOLARSHIP_BANK_TABLE_NAME = 'near_scholarship_bank';
+        public const SCHOLARSHIP_EDUCATION_TABLE_NAME = 'near_scholarship_education';
+        public const SCHOLARSHIP_FATHER_TABLE_NAME = 'near_scholarship_father';
+        public const SCHOLARSHIP_MOTHER_TABLE_NAME = 'near_scholarship_mother';
+        public const SCHOLARSHIP_SIBLINGS_TABLE_NAME = 'near_scholarship_siblings';
+        public const SCHOLARSHIP_DOCUMENTS_TABLE_NAME = 'near_scholarship_documents';
+        public const SCHOLARSHIP_REFERENCE_TABLE_NAME = 'near_scholarship_reference';
 
         protected $wpdb;
 

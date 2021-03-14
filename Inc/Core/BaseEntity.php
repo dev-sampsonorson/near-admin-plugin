@@ -16,6 +16,50 @@
             // $this->updateDate = $updateDate;
             
             foreach($config as $key => $value) {
+                // check if *key is navigation property
+                if (strpos($key, "__") !== false) {
+                    // true: trim off first 2 characters
+                    $key = substr($key, 2);
+    
+                    // check if key/property exists
+                    if (!property_exists($this, $key))
+                        continue;
+
+                    $className = ucfirst($key); // $value['className'];
+                    $argument = $value;
+
+                    $refArgs = array();
+
+                    if (method_exists($className, '__construct') === false) {
+                        exit("Constructor for the class <strong>$className</strong> does not exist");
+                    }
+
+                    $refMethod = new ReflectionMethod($className,  '__construct');
+                    $params = $refMethod->getParameters();
+                    // print_r($params);
+
+                    foreach($params as $paramKey => $paramValue) {
+                        if ($paramValue->name !== 'config')
+                            continue;
+                        
+                        if ($paramValue->isPassedByReference()) {
+                            $refArgs[$paramKey] = &$argument;
+                        } else {
+                            $refArgs[$paramKey] = $argument;
+                        }
+                    }
+   
+
+                    $refClass = new ReflectionClass($className);
+                    $classInstance = $refClass->newInstanceArgs((array) $refArgs);
+                    
+                    if (property_exists($this, $key)) {
+                        $this->{$key} = $classInstance;
+                    }
+
+                    continue;
+                } 
+                
                 if (property_exists($this, $key)) {
                     $this->{$key} = $value;
                 }

@@ -16,8 +16,7 @@
             return [       
                 Enqueue::class,
                 SettingsLinks::class, 
-                ManagementCenterController::class,
-                ApplicationFormController::class
+                ManagementCenterController::class
             ];
         }
 
