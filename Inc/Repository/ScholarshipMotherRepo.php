@@ -70,7 +70,7 @@
 
         public function getByScholarshipId(int $scholarshipId): ?ScholarshipMother {
             try {
-                $query = "SELECT a.* FROM {$this->getTableName()} WHERE `scholarshipId` = %d";
+                $query = "SELECT * FROM {$this->getTableName()} WHERE `scholarshipId` = %d";
                 $row = $this->wpdb->get_row($this->wpdb->prepare($query, $scholarshipId));
 
                 if ($row === null)

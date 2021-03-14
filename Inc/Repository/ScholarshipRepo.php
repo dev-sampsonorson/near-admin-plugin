@@ -32,7 +32,7 @@
                 $result = $this->wpdb->get_results("SELECT * FROM {$this->getTableName()}");
                 
                 foreach($result as $row) {           
-                    $rows[] = new Scholarship([
+                    $instance = new Scholarship([
                         "id" => $row->id,
                         "firstName" => $row->firstName,
                         "lastName" => $row->lastName,
@@ -53,7 +53,30 @@
                         "iAgree" => $row->iAgree,
                         "approved" => $row->approved,
                         "insertDate" => Helper::toDateTimeFromString($row->insertDate)
-                    ]);
+                    ]);                    
+
+                    // Scholarship Bank
+                    $instance->scholarshipBank = $this->scholarshipBankRepo->getByScholarshipId($row->id);
+    
+                    // Scholarship Education
+                    $instance->scholarshipEducation = $this->scholarshipEducationRepo->getByScholarshipId($row->id);
+    
+                    // Scholarship Father
+                    $instance->scholarshipFather = $this->scholarshipFatherRepo->getByScholarshipId($row->id);
+    
+                    // Scholarship Mother
+                    $instance->scholarshipMother = $this->scholarshipMotherRepo->getByScholarshipId($row->id);
+    
+                    // Scholarship Sibling
+                    $instance->scholarshipSibling = $this->scholarshipSiblingRepo->getByScholarshipId($row->id);
+    
+                    // Scholarship Document
+                    $instance->scholarshipDocument = $this->scholarshipDocumentRepo->getByScholarshipId($row->id);
+    
+                    // Scholarship Reference
+                    $instance->scholarshipReference = $this->scholarshipReferenceRepo->getByScholarshipId($row->id);
+
+                    $rows[] = $instance;
                 }
 
                 if ($result === null)
@@ -79,28 +102,51 @@
                 if ($row === null)
                     return null;
                     
-                return new Scholarship([
-                        "id" => $row->id,
-                        "firstName" => $row->firstName,
-                        "lastName" => $row->lastName,
-                        "otherNames" => $row->otherNames,
-                        "nationalIdNumber" => $row->nationalIdNumber,
-                        "birthPlace" => $row->birthPlace,
-                        "birthDate" => $row->birthDate,
-                        "emailAddress" => $row->emailAddress,
-                        "mobileNumber" => $row->mobileNumber,
-                        "parentNumber" => $row->parentNumber,
-                        "gotScholarshipLastYear" => $row->gotScholarshipLastYear,
-                        "requiredScholarships" => $row->requiredScholarships,
-                        "fileId" => $row->fileId,
-                        "address" => $row->address,
-                        "howKnowFoundation" => $row->howKnowFoundation,
-                        "volunteerInterest" => $row->volunteerInterest,
-                        "whyScholarship" => $row->whyScholarship,
-                        "iAgree" => $row->iAgree,
-                        "approved" => $row->approved,
-                        "insertDate" => Helper::toDateTimeFromString($row->insertDate)
-                    ]);
+                $instance = new Scholarship([
+                    "id" => $row->id,
+                    "firstName" => $row->firstName,
+                    "lastName" => $row->lastName,
+                    "otherNames" => $row->otherNames,
+                    "nationalIdNumber" => $row->nationalIdNumber,
+                    "birthPlace" => $row->birthPlace,
+                    "birthDate" => $row->birthDate,
+                    "emailAddress" => $row->emailAddress,
+                    "mobileNumber" => $row->mobileNumber,
+                    "parentNumber" => $row->parentNumber,
+                    "gotScholarshipLastYear" => $row->gotScholarshipLastYear,
+                    "requiredScholarships" => $row->requiredScholarships,
+                    "fileId" => $row->fileId,
+                    "address" => $row->address,
+                    "howKnowFoundation" => $row->howKnowFoundation,
+                    "volunteerInterest" => $row->volunteerInterest,
+                    "whyScholarship" => $row->whyScholarship,
+                    "iAgree" => $row->iAgree,
+                    "approved" => $row->approved,
+                    "insertDate" => Helper::toDateTimeFromString($row->insertDate)
+                ]);
+                
+                // Scholarship Bank
+                $instance->scholarshipBank = $this->scholarshipBankRepo->getByScholarshipId($row->id);
+
+                // Scholarship Education
+                $instance->scholarshipEducation = $this->scholarshipEducationRepo->getByScholarshipId($row->id);
+
+                // Scholarship Father
+                $instance->scholarshipFather = $this->scholarshipFatherRepo->getByScholarshipId($row->id);
+
+                // Scholarship Mother
+                $instance->scholarshipMother = $this->scholarshipMotherRepo->getByScholarshipId($row->id);
+
+                // Scholarship Sibling
+                $instance->scholarshipSibling = $this->scholarshipSiblingRepo->getByScholarshipId($row->id);
+
+                // Scholarship Document
+                $instance->scholarshipDocument = $this->scholarshipDocumentRepo->getByScholarshipId($row->id);
+
+                // Scholarship Reference
+                $instance->scholarshipReference = $this->scholarshipReferenceRepo->getByScholarshipId($row->id);
+
+                return $instance;
             } catch (Exception $e) {
                 throw new Exception("Scholarship could not be found");
             } finally {
@@ -116,30 +162,51 @@
                 if ($row === null)
                     return null;
                     
-                return new Scholarship([
-                        "id" => $row->id,
-                        "firstName" => $row->firstName,
-                        "lastName" => $row->lastName,
-                        "otherNames" => $row->otherNames,
-                        "nationalIdNumber" => $row->nationalIdNumber,
-                        "birthPlace" => $row->birthPlace,
-                        "birthDate" => $row->birthDate,
-                        "emailAddress" => $row->emailAddress,
-                        "mobileNumber" => $row->mobileNumber,
-                        "parentNumber" => $row->parentNumber,
-                        "gotScholarshipLastYear" => $row->gotScholarshipLastYear,
-                        "requiredScholarships" => $row->requiredScholarships,
-                        "fileId" => $row->fileId,
-                        "address" => $row->address,
-                        "howKnowFoundation" => $row->howKnowFoundation,
-                        "volunteerInterest" => $row->volunteerInterest,
-                        "whyScholarship" => $row->whyScholarship,
-                        "iAgree" => $row->iAgree,
-                        "approved" => $row->approved,
-                        "insertDate" => Helper::toDateTimeFromString($row->insertDate)
-                    ]);
+                $instance = new Scholarship([
+                    "id" => $row->id,
+                    "firstName" => $row->firstName,
+                    "lastName" => $row->lastName,
+                    "otherNames" => $row->otherNames,
+                    "nationalIdNumber" => $row->nationalIdNumber,
+                    "birthPlace" => $row->birthPlace,
+                    "birthDate" => $row->birthDate,
+                    "emailAddress" => $row->emailAddress,
+                    "mobileNumber" => $row->mobileNumber,
+                    "parentNumber" => $row->parentNumber,
+                    "gotScholarshipLastYear" => $row->gotScholarshipLastYear,
+                    "requiredScholarships" => $row->requiredScholarships,
+                    "fileId" => $row->fileId,
+                    "address" => $row->address,
+                    "howKnowFoundation" => $row->howKnowFoundation,
+                    "volunteerInterest" => $row->volunteerInterest,
+                    "whyScholarship" => $row->whyScholarship,
+                    "iAgree" => $row->iAgree,
+                    "approved" => $row->approved,
+                    "insertDate" => Helper::toDateTimeFromString($row->insertDate)
+                ]);                    
+                
+                // Scholarship Bank
+                $instance->scholarshipBank = $this->scholarshipBankRepo->getByScholarshipId($row->id);
+
+                // Scholarship Education
+                $instance->scholarshipEducation = $this->scholarshipEducationRepo->getByScholarshipId($row->id);
+
+                // Scholarship Father
+                $instance->scholarshipFather = $this->scholarshipFatherRepo->getByScholarshipId($row->id);
+
+                // Scholarship Mother
+                $instance->scholarshipMother = $this->scholarshipMotherRepo->getByScholarshipId($row->id);
+
+                // Scholarship Sibling
+                $instance->scholarshipSibling = $this->scholarshipSiblingRepo->getByScholarshipId($row->id);
+
+                // Scholarship Document
+                $instance->scholarshipDocument = $this->scholarshipDocumentRepo->getByScholarshipId($row->id);
+
+                // Scholarship Reference
+                $instance->scholarshipReference = $this->scholarshipReferenceRepo->getByScholarshipId($row->id);
     
-                return $row;
+                return $instance;
             } catch (Exception $e) {
                 throw new Exception("Scholarship could not be found");
             } finally {
@@ -269,10 +336,6 @@
                 $data->scholarshipSibling->setScholarshipId($data->getId());
                 $data->scholarshipDocument->setScholarshipId($data->getId());
                 $data->scholarshipReference->setScholarshipId($data->getId());
-
-                echo "<pre>";
-                print_r($data->scholarshipBank);
-                echo "</pre>";
 
                 // Scholarship Bank
                 $this->scholarshipBankRepo->updateByScholarshipId($data->scholarshipBank);

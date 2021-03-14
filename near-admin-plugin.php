@@ -222,7 +222,7 @@
             "phoneNumber" => "08034483893",
         ),
     ));
-    $scholorshipRepo->update($scholarship);
+    // $scholorshipRepo->update($scholarship);
     // print_r($scholorshipRepo->update($scholarship));
     echo "<pre>";
     print_r($scholorshipRepo->getById(1));
