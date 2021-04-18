@@ -7,7 +7,7 @@
         protected $message = ":attribute :value is not in range";
         protected $fillableParams = ['format', 'min', 'max'];
 
-        public function __constructor() {
+        public function __construct() {
 
         }
 
@@ -21,12 +21,12 @@
                 $min = $this->parameter('min');
                 $max = $this->parameter('max');
     
-                $todayObject = new DateTime("now", new DateTimeZone(WB_CURRENT_TIMEZONE));
-                $today = DateTime::createFromFormat($format, $todayObject->format($format), new DateTimeZone(WB_CURRENT_TIMEZONE));
+                $todayObject = new DateTime("now", new DateTimeZone(TEBO_CURRENT_TIMEZONE));
+                $today = DateTime::createFromFormat($format, $todayObject->format($format), new DateTimeZone(TEBO_CURRENT_TIMEZONE));
 
-                $entryDate = DateTime::createFromFormat($format, $value, new DateTimeZone(WB_CURRENT_TIMEZONE));
-                $minDate = DateTime::createFromFormat($format, $min, new DateTimeZone(WB_CURRENT_TIMEZONE));
-                $maxDate = DateTime::createFromFormat($format, $max, new DateTimeZone(WB_CURRENT_TIMEZONE));
+                $entryDate = DateTime::createFromFormat($format, $value, new DateTimeZone(TEBO_CURRENT_TIMEZONE));
+                $minDate = DateTime::createFromFormat($format, $min, new DateTimeZone(TEBO_CURRENT_TIMEZONE));
+                $maxDate = DateTime::createFromFormat($format, $max, new DateTimeZone(TEBO_CURRENT_TIMEZONE));
 
                 if (empty($min) && empty($max))
                     return false;
@@ -42,7 +42,7 @@
     
                 return true;
             } catch (Exception $e) {
-                echo $e->getMessage();
+                // echo $e->getMessage();
                 return false;
             }
         }

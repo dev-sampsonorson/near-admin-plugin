@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Westsworld\\' => array($vendorDir . '/jimmiw/php-time-ago/src/Westsworld'),
     'Rakit\\Validation\\' => array($vendorDir . '/rakit/validation/src'),
+    'Gerardojbaez\\Money\\' => array($vendorDir . '/gerardojbaez/money/src'),
 );

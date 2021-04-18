@@ -4,6 +4,9 @@ import TeboUtility from './TeboUtility';
 import 'bootstrap/js/dist/alert';
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    if (!TeboUtility.elementExist('#volunteerApplicationWrapper'))
+        return;
+
     const volunteerForm = new VolunteerForm({
         formWrapperId: "volunteerApplicationWrapper",
         formId: "volunteerForm",

@@ -1,11 +1,11 @@
 <?php
     class ScholarshipSibling extends BaseEntity {
 
-        protected $scholarshipId; // int
-        protected $nSiblings; // int
-        protected $nSiblingsInPrimary; // int
-        protected $nSiblingsInSecondary; // int
-        protected $nSiblingsInUniversity; // int
+        public $scholarshipId; // int
+        public $nSiblings; // int
+        public $nSiblingsInPrimary; // int
+        public $nSiblingsInSecondary; // int
+        public $nSiblingsInUniversity; // int
 
         public function __construct(array $config) {
             parent::__construct($config);
@@ -33,7 +33,7 @@
                 "nSiblingsInPrimary" => $this->nSiblingsInPrimary,
                 "nSiblingsInSecondary" => $this->nSiblingsInSecondary,
                 "nSiblingsInUniversity" => $this->nSiblingsInUniversity,
-                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(WB_DATETIME_FORMAT) : ''
+                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''
             );
         }
 

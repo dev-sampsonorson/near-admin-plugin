@@ -1,6 +1,9 @@
 <?php
 
     use Westsworld\TimeAgo;
+    use Gerardojbaez\Money\Money;
+    use Gerardojbaez\Money\Currency;
+
 
     /**
      * @package CarpentryReviewPlugin
@@ -12,21 +15,52 @@
             
         }
 
+        public static function generateFileName($file, string $append = '') {
+            $ext = pathinfo($file['name'])['extension'];
+            $uniqueId = str_replace('.', '', uniqid('', true));
+            $microTime = microtime();
+            $microTime = str_replace(' ', '', str_replace('.', '', $microTime));
+
+            return $uniqueId . $microTime . $append . '.' . $ext;
+        }
+        
+        public static function getFileExtension($file) {
+            return pathinfo($file['name'])['extension'];
+            // return substr($file['name'], strpos($file['name'],".") + 1);
+        }
+
+        public static function arrayToStringList(array $list) {
+            $stringList = "";
+            foreach($list as $item)
+                $stringList .= $item . ",";
+    
+            return substr($stringList, 0, strlen($stringList) - 1);
+        }
+
         public static function timeAgo(?DateTime $date): string {
-            if (empty($date) || $date === null) return '';
+            if (empty($date) || $date === null)
+                throw new Exception('Invalid date to convert to time-ago');
 
             $timeAgo = new TimeAgo();
             return $timeAgo->inWords($date);
+        }
+
+        public static function toNaira($amount): string {
+            if (empty($amount) || $amount === null)
+                throw new Exception('Invalid amount to convert to Naira');
+            
+            $money = new Money($amount, 'NGN'); 
+            return $money->format();
         }
 
         public static function toDateTimeFromString(string $value, string $format = null): ?DateTime {
             if (empty($value)) return null;
 
             if ($format == null) {
-                return new DateTime($value, new DateTimeZone(WB_CURRENT_TIMEZONE));
+                return new DateTime($value, new DateTimeZone(TEBO_CURRENT_TIMEZONE));
             }
         
-            return DateTime::createFromFormat($format, $value, new DateTimeZone(WB_CURRENT_TIMEZONE));
+            return DateTime::createFromFormat($format, $value, new DateTimeZone(TEBO_CURRENT_TIMEZONE));
         }
 
         /**

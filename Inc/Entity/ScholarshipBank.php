@@ -1,11 +1,11 @@
 <?php
     class ScholarshipBank extends BaseEntity {
 
-        protected $scholarshipId; // int
-        protected $bankName; // string
-        protected $branchName; // string
-        protected $accountNumber; // string
-        protected $ibanNumber; // string
+        public $scholarshipId; // int
+        public $bankName; // string
+        public $branchName; // string
+        public $accountNumber; // string
+        public $ibanNumber; // string
 
         public function __construct(array $config) {
             parent::__construct($config);
@@ -33,7 +33,7 @@
                 "branchName" => $this->branchName,
                 "accountNumber" => $this->accountNumber,
                 "ibanNumber" => $this->ibanNumber,
-                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(WB_DATETIME_FORMAT) : ''
+                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''
             );
         }
 

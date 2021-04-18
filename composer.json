@@ -1,6 +1,7 @@
 {
-    "require": {
-        "rakit/validation": "^1.4",
-        "jimmiw/php-time-ago": "^3.2"
-    }
+  "require": {
+    "rakit/validation": "^1.4",
+    "jimmiw/php-time-ago": "^3.2",
+    "gerardojbaez/money": "0.*"
+  }
 }

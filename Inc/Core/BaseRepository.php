@@ -6,6 +6,8 @@
 
     abstract class BaseRepository {
 
+        public const STATES_TABLE_NAME = 'near_states';
+        public const DONATION_TABLE_NAME = 'near_donation';
         public const VOLUNTEER_TABLE_NAME = 'near_volunteer';
         public const SCHOLARSHIP_TABLE_NAME = 'near_scholarship';
         public const SCHOLARSHIP_BANK_TABLE_NAME = 'near_scholarship_bank';

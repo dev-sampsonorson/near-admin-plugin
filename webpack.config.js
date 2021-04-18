@@ -18,6 +18,7 @@ module.exports = (env) => {
         entry: {
             'scholarship-frontend': './src/scholarship-frontend.ts',
             'volunteer-frontend': './src/volunteer-frontend.ts',
+            'donation-frontend': './src/donation-frontend.ts',
             'frontend-index': './src/index-frontend.ts',
             'backend-index': './src/index-backend.ts',
             'styles': [
@@ -130,6 +131,7 @@ module.exports = (env) => {
             new CopyPlugin({
                 patterns: [
                     { from: path.resolve(__dirname, './src/assets/vendor/modernizr-custom.js'), to: 'js/', },
+                    { from: path.resolve(__dirname, './src/assets/vendor/bootstrap.bundle.min.js'), to: 'js/', },
                     { from: path.resolve(__dirname, './src/assets/css/bootstrap.min.css'), to: 'css/', },
                     { from: path.resolve(__dirname, './src/assets/css/bootstrap.min.css.map'), to: 'css/', },
                     { from: path.resolve(__dirname, './src/assets/css/bootstrap-datepicker3.min.css'), to: 'css/', },
@@ -151,6 +153,17 @@ module.exports = (env) => {
                 title: 'Scholarship Form',
                 template: './src/pages/scholarship.html',
                 filename: 'scholarship.html',
+                minify: {
+                    collapseWhitespace: !isDev
+                },
+                hash: false,
+                // excludeChunks: ['styles'],
+                inject: false
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Scholarship Form',
+                template: './src/pages/donation.html',
+                filename: 'donation.html',
                 minify: {
                     collapseWhitespace: !isDev
                 },

@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit49071f68632f16624dca7f3f811cd67b
 {
+    public static $files = array (
+        '5a29f2abde115bb0e1aa502d691e2e50' => __DIR__ . '/..' . '/gerardojbaez/money/src/helpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
@@ -14,6 +18,10 @@ class ComposerStaticInit49071f68632f16624dca7f3f811cd67b
         'R' => 
         array (
             'Rakit\\Validation\\' => 17,
+        ),
+        'G' => 
+        array (
+            'Gerardojbaez\\Money\\' => 19,
         ),
     );
 
@@ -25,6 +33,10 @@ class ComposerStaticInit49071f68632f16624dca7f3f811cd67b
         'Rakit\\Validation\\' => 
         array (
             0 => __DIR__ . '/..' . '/rakit/validation/src',
+        ),
+        'Gerardojbaez\\Money\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gerardojbaez/money/src',
         ),
     );
 

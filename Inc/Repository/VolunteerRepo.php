@@ -19,8 +19,9 @@
                         "otherNames" => $row->otherNames,
                         "mobileNumber" => $row->mobileNumber,
                         "emailAddress" => $row->emailAddress,
-                        "birthDate" => $row->birthDate,
+                        "birthDate" => Helper::toDateTimeFromString($row->birthDate),
                         "gender" => $row->gender,
+                        "stateOfOrigin" => $row->stateOfOrigin,
                         "address" => $row->address,
                         "availability" => $row->availability,
                         "volunteerInterest" => $row->volunteerInterest,
@@ -61,8 +62,9 @@
                         "otherNames" => $row->otherNames,
                         "mobileNumber" => $row->mobileNumber,
                         "emailAddress" => $row->emailAddress,
-                        "birthDate" => $row->birthDate,
+                        "birthDate" => Helper::toDateTimeFromString($row->birthDate),
                         "gender" => $row->gender,
+                        "stateOfOrigin" => $row->stateOfOrigin,
                         "address" => $row->address,
                         "availability" => $row->availability,
                         "volunteerInterest" => $row->volunteerInterest,
@@ -93,8 +95,9 @@
                         "otherNames" => $row->otherNames,
                         "mobileNumber" => $row->mobileNumber,
                         "emailAddress" => $row->emailAddress,
-                        "birthDate" => $row->birthDate,
+                        "birthDate" => Helper::toDateTimeFromString($row->birthDate),
                         "gender" => $row->gender,
+                        "stateOfOrigin" => $row->stateOfOrigin,
                         "address" => $row->address,
                         "availability" => $row->availability,
                         "volunteerInterest" => $row->volunteerInterest,
@@ -114,7 +117,8 @@
 
         public function insert(Volunteer $data): ?Volunteer {
             try {                
-                $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                // $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                $data->setInsertDate(Helper::toDateTimeFromString((new DateTime())->format(TEBO_DATETIME_FORMAT)));
 
                 $dataAsArray = $data->toArray();
                 unset($dataAsArray["id"]);
@@ -130,6 +134,7 @@
                         'emailAddress' => '%s',
                         'birthDate' => '%s',
                         'gender' => '%s',
+                        'stateOfOrigin' => '%s',
                         'address' => '%s',
                         'availability' => '%s',
                         'volunteerInterest' => '%s',
@@ -147,7 +152,7 @@
 
                 return $data;
             } catch (Exception $e) {
-                throw new Exception("Unable to create scholarship");
+                throw new Exception("Unable to create volunteer");
             } finally {
                 $this->wpdb->flush();
             }
@@ -175,6 +180,7 @@
                         'emailAddress' => '%s',
                         'birthDate' => '%s',
                         'gender' => '%s',
+                        'stateOfOrigin' => '%s',
                         'address' => '%s',
                         'availability' => '%s',
                         'volunteerInterest' => '%s',
@@ -190,7 +196,7 @@
 
                 return $data;
             } catch (Exception $e) {
-                throw new Exception("Unable to update scholarship");
+                throw new Exception("Unable to update volunteer");
             } finally {
                 $this->wpdb->flush();
             }

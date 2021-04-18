@@ -14,14 +14,26 @@ class ManagementCenterCallbacks extends BaseController {
 
         $this->controller = $controller;
     }
-
-    public function dashboardView() {
-        $controller = $this->controller;
-        
-        return require_once($this->modules_path . "ManagementCenter/Views/ManagementCenterView.php");
-    }
-
+    
     public function shortcodeView() {
         return require_once($this->modules_path . "ManagementCenter/Views/ShortcodeView.php");
+    }
+
+    public function volunteersView() {
+        $controller = $this->controller;
+
+        return require_once($this->modules_path . "ManagementCenter/Views/VolunteersView.php");
+    }
+
+    public function scholarshipAppsView() {
+        $controller = $this->controller;
+        
+        return require_once($this->modules_path . "ManagementCenter/Views/ScholarshipAppsView.php");
+    }
+
+    public function donationsView() {
+        $controller = $this->controller;
+        
+        return require_once($this->modules_path . "ManagementCenter/Views/DonationsView.php");
     }
 }

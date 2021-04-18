@@ -2,15 +2,22 @@
 import ScholarshipForm from './modules/near-forms/ScholarshipForm';
 import TeboUtility from './TeboUtility';
 import 'bootstrap/js/dist/alert';
+import 'bootstrap/js/dist/modal';
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    if (!TeboUtility.elementExist('#scholarshipApplicationWrapper'))
+        return;
+
     const scholarshipForm = new ScholarshipForm({
         formWrapperId: "scholarshipApplicationWrapper",
         formId: "scholarshipForm",
         saveButtonId: "btnSave",
         cancelButtonId: "btnCancel",
 
+        fileNumberSelector: "#fileNumberFeedback",
+        completionNotificationModalSelector: '#scholarshipApplicationModal',
         fileInputIds: [
+            'filePassportPhotograph',
             'fileRequestLetter',
             'fileAdmissionLetter',
             'fileJambResult',

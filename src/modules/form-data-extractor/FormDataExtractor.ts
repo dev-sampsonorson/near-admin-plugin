@@ -61,8 +61,7 @@ export default class FormDataExtractor {
 
         // get array of fields that exist in this form
         let fields = this.formEl.serializeArray();
-        console.log('ppp', new FormData(formEl));
-        console.log('kkk', fields);
+        
         for (let i = 0; i < fields.length; ++i) {
             currentField = fields[i];
             // extract field names

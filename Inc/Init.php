@@ -16,7 +16,10 @@
             return [       
                 Enqueue::class,
                 SettingsLinks::class, 
-                ManagementCenterController::class
+                ManagementCenterController::class,
+                VolunteerFormController::class,
+                ScholarshipFormController::class,
+                DonationFormController::class
             ];
         }
 

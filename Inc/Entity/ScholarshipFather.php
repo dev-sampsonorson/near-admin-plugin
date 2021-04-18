@@ -1,14 +1,14 @@
 <?php
     class ScholarshipFather extends BaseEntity {
 
-        protected $scholarshipId; // int
-        protected $name; // string
-        protected $aliveOrDeceased; // string
-        protected $occupation; // string
-        protected $monthlyIncome; // string
-        protected $city; // string
-        protected $state; // string
-        protected $mobileNumber; // string
+        public $scholarshipId; // int
+        public $name; // string
+        public $aliveOrDeceased; // string
+        public $occupation; // string
+        public $monthlyIncome; // string
+        public $city; // string
+        public $state; // string
+        public $mobileNumber; // string
 
         public function __construct(array $config) {
             parent::__construct($config);
@@ -39,7 +39,7 @@
                 "city" => $this->city,
                 "state" => $this->state,
                 "mobileNumber" => $this->mobileNumber,
-                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(WB_DATETIME_FORMAT) : ''
+                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''
             );
         }
 

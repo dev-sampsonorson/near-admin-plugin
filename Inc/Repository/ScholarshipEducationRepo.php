@@ -96,7 +96,8 @@
 
         public function insert(ScholarshipEducation $data): ?ScholarshipEducation {
             try {                
-                $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                // $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                $data->setInsertDate(Helper::toDateTimeFromString((new DateTime())->format(TEBO_DATETIME_FORMAT)));
 
                 $dataAsArray = $data->toArray();
                 unset($dataAsArray["id"]);

@@ -24,6 +24,15 @@ html {
     }
 }
 
+/* Overrides */
+#volunteerApplicationWrapper .form-row,
+#scholarshipApplicationWrapper .form-row {
+    width: auto !important;
+    position: static !important;
+    float: none !important;
+    margin: 0px -5px 0px -5px !important;
+}
+
 .hide-text {
     @include hide-text;
 }
@@ -285,4 +294,8 @@ html {
 .stick-to-bottom {
     position: fixed;
     bottom: 0px;
+}
+
+#fileNumberFeedback {
+    font-size: 2rem !important;
 }

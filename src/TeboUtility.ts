@@ -7,11 +7,17 @@ export interface ICountry {
 
 export interface IState {
     countryCode: string;
+    stateId: number;
     stateName: string;
     stateCode: string;
 }
 
 export default class TeboUtility {
+
+    static elementExist(selector) {
+        const element = document.querySelector(selector);
+        return typeof (element) != 'undefined' && element != null;
+    }
 
     static objectToFormData(o): FormData {
         const formData = new FormData();
@@ -455,103 +461,43 @@ export default class TeboUtility {
     ];
 
     static readonly allStates: IState[] = [
-        { stateName: "Abia", stateCode: "NG-AB", countryCode: "NG" },
-        { stateName: "Abuja Federal Capital Territory", stateCode: "NG-FC", countryCode: "NG" },
-        { stateName: "Adamawa", stateCode: "NG-AD", countryCode: "NG" },
-        { stateName: "Akwa Ibom", stateCode: "NG-AK", countryCode: "NG" },
-        { stateName: "Anambra", stateCode: "NG-AN", countryCode: "NG" },
-        { stateName: "Bauchi", stateCode: "NG-BA", countryCode: "NG" },
-        { stateName: "Bayelsa", stateCode: "NG-BY", countryCode: "NG" },
-        { stateName: "Benue", stateCode: "NG-BE", countryCode: "NG" },
-        { stateName: "Borno", stateCode: "NG-BO", countryCode: "NG" },
-        { stateName: "Cross River", stateCode: "NG-CR", countryCode: "NG" },
-        { stateName: "Delta", stateCode: "NG-DE", countryCode: "NG" },
-        { stateName: "Ebonyi", stateCode: "NG-EB", countryCode: "NG" },
-        { stateName: "Edo", stateCode: "NG-ED", countryCode: "NG" },
-        { stateName: "Ekiti", stateCode: "NG-EK", countryCode: "NG" },
-        { stateName: "Enugu", stateCode: "NG-EN", countryCode: "NG" },
-        { stateName: "Gombe", stateCode: "NG-GO", countryCode: "NG" },
-        { stateName: "Imo", stateCode: "NG-IM", countryCode: "NG" },
-        { stateName: "Jigawa", stateCode: "NG-JI", countryCode: "NG" },
-        { stateName: "Kaduna", stateCode: "NG-KD", countryCode: "NG" },
-        { stateName: "Kano", stateCode: "NG-KN", countryCode: "NG" },
-        { stateName: "Katsina", stateCode: "NG-KT", countryCode: "NG" },
-        { stateName: "Kebbi", stateCode: "NG-KE", countryCode: "NG" },
-        { stateName: "Kogi", stateCode: "NG-KO", countryCode: "NG" },
-        { stateName: "Kwara", stateCode: "NG-KW", countryCode: "NG" },
-        { stateName: "Lagos", stateCode: "NG-LA", countryCode: "NG" },
-        { stateName: "Nasarawa", stateCode: "NG-NA", countryCode: "NG" },
-        { stateName: "Niger", stateCode: "NG-NI", countryCode: "NG" },
-        { stateName: "Ogun", stateCode: "NG-OG", countryCode: "NG" },
-        { stateName: "Ondo", stateCode: "NG-ON", countryCode: "NG" },
-        { stateName: "Osun", stateCode: "NG-OS", countryCode: "NG" },
-        { stateName: "Oyo", stateCode: "NG-OY", countryCode: "NG" },
-        { stateName: "Plateau", stateCode: "NG-PL", countryCode: "NG" },
-        { stateName: "Rivers", stateCode: "NG-RI", countryCode: "NG" },
-        { stateName: "Sokoto", stateCode: "NG-SO", countryCode: "NG" },
-        { stateName: "Taraba", stateCode: "NG-TA", countryCode: "NG" },
-        { stateName: "Yobe", stateCode: "NG-YO", countryCode: "NG" },
-        { stateName: "Zamfara", stateCode: "NG-ZA", countryCode: "NG" },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        { stateName: "Adamawa", stateCode: "", countryCode: "" },
-        { stateName: "Anambra", stateCode: "", countryCode: "" },
-        { stateName: "Akwa Ibom", stateCode: "", countryCode: "" },
-        { stateName: "Bauchi", stateCode: "", countryCode: "" },
-        { stateName: "Bayelsa", stateCode: "", countryCode: "" },
-        { stateName: "Benue", stateCode: "", countryCode: "" },
-        { stateName: "Borno", stateCode: "", countryCode: "" },
-        { stateName: "Cross River", stateCode: "", countryCode: "" },
-        { stateName: "Delta", stateCode: "", countryCode: "" },
-        { stateName: "Ebonyi", stateCode: "", countryCode: "" },
-        { stateName: "Enugu", stateCode: "", countryCode: "" },
-        { stateName: "Edo", stateCode: "", countryCode: "" },
-        { stateName: "Ekiti", stateCode: "", countryCode: "" },
-        { stateName: "FCT - Abuja", stateCode: "", countryCode: "" },
-        { stateName: "Gombe", stateCode: "", countryCode: "" },
-        { stateName: "Imo", stateCode: "", countryCode: "" },
-        { stateName: "Jigawa", stateCode: "", countryCode: "" },
-        { stateName: "Kaduna", stateCode: "", countryCode: "" },
-        { stateName: "Kano", stateCode: "", countryCode: "" },
-        { stateName: "Katsina", stateCode: "", countryCode: "" },
-        { stateName: "Kebbi", stateCode: "", countryCode: "" },
-        { stateName: "Kogi", stateCode: "", countryCode: "" },
-        { stateName: "Kwara", stateCode: "", countryCode: "" },
-        { stateName: "Lagos", stateCode: "", countryCode: "" },
-        { stateName: "Nasarawa", stateCode: "", countryCode: "" },
-        { stateName: "Niger", stateCode: "", countryCode: "" },
-        { stateName: "Ogun", stateCode: "", countryCode: "" },
-        { stateName: "Ondo", stateCode: "", countryCode: "" },
-        { stateName: "Osun", stateCode: "", countryCode: "" },
-        { stateName: "Oyo", stateCode: "", countryCode: "" },
-        { stateName: "Plateau", stateCode: "", countryCode: "" },
-        { stateName: "Rivers", stateCode: "", countryCode: "" },
-        { stateName: "Sokoto", stateCode: "", countryCode: "" },
-        { stateName: "Taraba", stateCode: "", countryCode: "" },
-        { stateName: "Yobe", stateCode: "", countryCode: "" },
-        { stateName: "Zamfara", stateCode: "", countryCode: "" }
-
+        { stateId: 1, stateName: "Abia", stateCode: "NG-AB", countryCode: "NG" },
+        { stateId: 2, stateName: "Abuja Federal Capital Territory", stateCode: "NG-FC", countryCode: "NG" },
+        { stateId: 3, stateName: "Adamawa", stateCode: "NG-AD", countryCode: "NG" },
+        { stateId: 4, stateName: "Akwa Ibom", stateCode: "NG-AK", countryCode: "NG" },
+        { stateId: 5, stateName: "Anambra", stateCode: "NG-AN", countryCode: "NG" },
+        { stateId: 6, stateName: "Bauchi", stateCode: "NG-BA", countryCode: "NG" },
+        { stateId: 7, stateName: "Bayelsa", stateCode: "NG-BY", countryCode: "NG" },
+        { stateId: 8, stateName: "Benue", stateCode: "NG-BE", countryCode: "NG" },
+        { stateId: 9, stateName: "Borno", stateCode: "NG-BO", countryCode: "NG" },
+        { stateId: 10, stateName: "Cross River", stateCode: "NG-CR", countryCode: "NG" },
+        { stateId: 11, stateName: "Delta", stateCode: "NG-DE", countryCode: "NG" },
+        { stateId: 12, stateName: "Ebonyi", stateCode: "NG-EB", countryCode: "NG" },
+        { stateId: 13, stateName: "Edo", stateCode: "NG-ED", countryCode: "NG" },
+        { stateId: 14, stateName: "Ekiti", stateCode: "NG-EK", countryCode: "NG" },
+        { stateId: 15, stateName: "Enugu", stateCode: "NG-EN", countryCode: "NG" },
+        { stateId: 16, stateName: "Gombe", stateCode: "NG-GO", countryCode: "NG" },
+        { stateId: 17, stateName: "Imo", stateCode: "NG-IM", countryCode: "NG" },
+        { stateId: 18, stateName: "Jigawa", stateCode: "NG-JI", countryCode: "NG" },
+        { stateId: 19, stateName: "Kaduna", stateCode: "NG-KD", countryCode: "NG" },
+        { stateId: 20, stateName: "Kano", stateCode: "NG-KN", countryCode: "NG" },
+        { stateId: 21, stateName: "Katsina", stateCode: "NG-KT", countryCode: "NG" },
+        { stateId: 22, stateName: "Kebbi", stateCode: "NG-KE", countryCode: "NG" },
+        { stateId: 23, stateName: "Kogi", stateCode: "NG-KO", countryCode: "NG" },
+        { stateId: 24, stateName: "Kwara", stateCode: "NG-KW", countryCode: "NG" },
+        { stateId: 25, stateName: "Lagos", stateCode: "NG-LA", countryCode: "NG" },
+        { stateId: 26, stateName: "Nasarawa", stateCode: "NG-NA", countryCode: "NG" },
+        { stateId: 27, stateName: "Niger", stateCode: "NG-NI", countryCode: "NG" },
+        { stateId: 28, stateName: "Ogun", stateCode: "NG-OG", countryCode: "NG" },
+        { stateId: 29, stateName: "Ondo", stateCode: "NG-ON", countryCode: "NG" },
+        { stateId: 30, stateName: "Osun", stateCode: "NG-OS", countryCode: "NG" },
+        { stateId: 31, stateName: "Oyo", stateCode: "NG-OY", countryCode: "NG" },
+        { stateId: 32, stateName: "Plateau", stateCode: "NG-PL", countryCode: "NG" },
+        { stateId: 33, stateName: "Rivers", stateCode: "NG-RI", countryCode: "NG" },
+        { stateId: 34, stateName: "Sokoto", stateCode: "NG-SO", countryCode: "NG" },
+        { stateId: 35, stateName: "Taraba", stateCode: "NG-TA", countryCode: "NG" },
+        { stateId: 36, stateName: "Yobe", stateCode: "NG-YO", countryCode: "NG" },
+        { stateId: 37, stateName: "Zamfara", stateCode: "NG-ZA", countryCode: "NG" },
     ];
 
 }

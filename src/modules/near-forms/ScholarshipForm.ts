@@ -7,6 +7,7 @@ import moment from 'moment';
 import 'bootstrap-datepicker';
 import FormNotification, { NotificationStatus } from "../form-notification/FormNotification";
 import FormDataExtractor from '../form-data-extractor/FormDataExtractor';
+import ValidationError from "../app-error/ValidationError";
 
 
 export default class ScholarshipForm {
@@ -17,6 +18,8 @@ export default class ScholarshipForm {
     private saveEl: HTMLButtonElement;
     private cancelEl: HTMLButtonElement;
 
+    private ddlStateOfOriginEl: HTMLInputElement;
+    private fileNumberEl?: HTMLElement;
     private fileInputIds: string[];
 
     private formDataExtractor: FormDataExtractor;
@@ -27,6 +30,8 @@ export default class ScholarshipForm {
         this.formEl = this.wrapperEl.querySelector(`#${this.config.formId}`)! as HTMLFormElement;
         this.saveEl = this.wrapperEl.querySelector(`#${this.config.saveButtonId}`)! as HTMLButtonElement;
         this.cancelEl = this.wrapperEl.querySelector(`#${this.config.cancelButtonId}`)! as HTMLButtonElement;
+
+        this.ddlStateOfOriginEl = this.wrapperEl.querySelector(`#ddlStateOfOrigin`)! as HTMLInputElement;
 
         this.fileInputIds = this.config.fileInputIds || [];
 
@@ -47,6 +52,13 @@ export default class ScholarshipForm {
 
     setup() {
         const self = this;
+
+        self.loadStateDropdown();
+        self.injectModalIntoDom();
+
+        /* $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        }); */
 
         // Init
         $('.date-control').datepicker({
@@ -89,34 +101,76 @@ export default class ScholarshipForm {
             }
         });
 
-        this.saveEl.addEventListener('click', e => {
+        this.saveEl.addEventListener('click', async e => {
             e.preventDefault();
 
-            const el = e.currentTarget as HTMLElement;
-            const isValid = this.validationInstance.validate();
+            try {
+                this.saveEl.disabled = true;
 
+                const el = e.currentTarget as HTMLElement;
+                const isValid = this.validationInstance.validate();
 
-            /* if (!isValid) {
-                this.notificationEl.error("Oops, you have not completed the form correctly");
-                return true;
-            } */
-
-            let inputValues = this.formDataExtractor.toObject(this.formEl);
-            let inputAsFormData: FormData = TeboUtility.objectToFormData(inputValues);
-
-            this.fileInputIds.forEach(id => {
-                const fileList = (document.getElementById(id) as HTMLInputElement).files;
-                if (fileList !== null) {
-                    inputAsFormData.append(id, fileList[0]);
+                if (!isValid) {
+                    this.notificationEl.error("Oops, you have not completed the form correctly");
+                    return true;
                 }
-            });
 
+                let inputValues = this.formDataExtractor.toObject(this.formEl);
+                let inputAsFormData: FormData = TeboUtility.objectToFormData(inputValues);
+
+                this.fileInputIds.forEach(id => {
+                    const fileList = (document.getElementById(id) as HTMLInputElement).files;
+                    if (fileList !== null) {
+                        inputAsFormData.append(id, fileList[0]);
+                    }
+                });
+
+                // const formData = new FormData();
+                const url = frontend_script_config.ajaxRequestUrl;
+                // const data = this.formDataExtractor.toObject(this.formEl);
+
+                inputAsFormData.append("action", "saveScholarshipForm");
+                inputAsFormData.append("nonce", frontend_script_config.saveScholarshipFormNonce);
+                inputAsFormData.append("data", JSON.stringify(inputValues));
+
+                const response = await fetch(url, {
+                    method: "POST",
+                    body: inputAsFormData
+                });
+
+                const responseObj = await response.json();
+                const responseResult = responseObj.data.result;
+
+                if (response.status !== 200) {
+                    throw new ValidationError(responseResult.key, responseResult);
+                }
+
+                if (!responseObj.success)
+                    throw "Failed to save scholarship application";
+
+                this.notificationEl?.show(NotificationStatus.Success, "Successfully saved scholarship application");
+                this.formEl.reset();
+
+                if (this.config.completionNotificationModalSelector && this.fileNumberEl) {
+                    this.fileNumberEl.innerHTML = responseResult.fileId;
+                    $(this.config.completionNotificationModalSelector).modal('show');
+                }
+
+            } catch (err) {
+                this.notificationEl?.show(NotificationStatus.Danger, "Unable to save scholarship application, check the form for errors and try again.");
+            } finally {
+                this.saveEl.disabled = false;
+            }
 
             e.stopPropagation();
         });
 
+        // console.log(this.cancelEl);
+
         this.cancelEl.addEventListener('click', e => {
             const el = e.currentTarget as HTMLElement;
+
+            this.formEl.reset();
 
             e.stopPropagation();
         });
@@ -218,6 +272,59 @@ export default class ScholarshipForm {
         } else {
             groupTitleEl?.classList.remove(groupTitleClassName);
         }
+    }
+
+    injectModalIntoDom() {
+        let modalMarkup = `
+        <div class="modal fade" id="scholarshipApplicationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Scholarship Application</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="lead">Your scholarship application has been successfully registered. Your file number
+                            is;
+                        </p>
+                        <h1 id="fileNumberFeedback" class="display-4"></h1>
+                        <p>
+                            <small>
+                                Please take note of this file number, it will be required during the application
+                                process.
+                            </small>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+
+        document.querySelector('body')!.insertAdjacentHTML('beforeend', modalMarkup);
+        this.fileNumberEl = document.querySelector(`${this.config.fileNumberSelector}`)! as HTMLElement;
+    }
+
+    loadStateDropdown(selectedStateId: number = 0) {
+        console.log('this.ddlStateOfOriginEl', this.ddlStateOfOriginEl);
+        this.ddlStateOfOriginEl.innerHTML = '';
+
+        let options = `<option ${selectedStateId !== 0 ? '' : 'selected'} disabled value="">Select a state of origin</option>`;
+
+        for (const state of TeboUtility.allStates) {
+            let selected = '';
+            if (selectedStateId !== 0 && selectedStateId === state.stateId) {
+                selected = 'selected';
+            }
+            options += `<option ${selected} value="${state.stateId}">${state.stateName}</option>`;
+        }
+
+        this.ddlStateOfOriginEl?.insertAdjacentHTML('beforeend', options);
+        this.ddlStateOfOriginEl?.dispatchEvent(new Event('change'));
     }
 
 }

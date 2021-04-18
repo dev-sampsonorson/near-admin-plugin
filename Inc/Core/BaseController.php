@@ -21,7 +21,7 @@
             $this->plugin_url = plugin_dir_url(dirname(__FILE__, 2));
             $this->plugin_script_base_url = plugin_dir_url(dirname(__FILE__, 2)) . '/assets/js';
             $this->plugin_style_base_url = plugin_dir_url(dirname(__FILE__, 2)) . '/assets/css';
-            $this->plugin = plugin_basename(dirname(__FILE__, 3)) . '/' . PLUGIN_INDEX_FILE;
+            $this->plugin = plugin_basename(dirname(__FILE__, 3)) . '/' . TEBO_PLUGIN_INDEX_FILE;
 
             $this->helper = new Helper();
         }

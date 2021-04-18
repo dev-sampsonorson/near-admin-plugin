@@ -1,24 +1,25 @@
 <?php
     class Scholarship extends BaseEntity {
 
-        protected $firstName; // string
-        protected $lastName; // string
-        protected $otherNames; // string
-        protected $nationalIdNumber; // string
-        protected $birthPlace; // string
-        protected $birthDate; // DateTime
-        protected $emailAddress; // string
-        protected $mobileNumber; // string
-        protected $parentNumber; // string
-        protected $gotScholarshipLastYear; // bool
-        protected $requiredScholarships; // string
-        protected $fileId; // string
-        protected $address; // string
-        protected $howKnowFoundation; // string
-        protected $volunteerInterest; // bool
-        protected $whyScholarship; // string
-        protected $iAgree; // bool
-        protected $approved; // bool
+        public $firstName; // string
+        public $lastName; // string
+        public $otherNames; // string
+        public $nationalIdNumber; // string
+        public $birthPlace; // string
+        public $birthDate; // DateTime
+        public $emailAddress; // string
+        public $mobileNumber; // string
+        public $parentNumber; // string
+        public $gotScholarshipLastYear; // bool
+        public $requiredScholarships; // string
+        public $fileId; // string
+        public $stateOfOrigin; // string
+        public $address; // string
+        public $howKnowFoundation; // string
+        public $volunteerInterest; // bool
+        public $whyScholarship; // string
+        public $iAgree; // bool
+        public $approved; // bool
 
         public $scholarshipBank;
         public $scholarshipEducation;
@@ -44,20 +45,21 @@
                 "otherNames" => $this->otherNames,
                 "nationalIdNumber" => $this->nationalIdNumber,
                 "birthPlace" => $this->birthPlace,
-                "birthDate" => $this->birthDate->format(WB_DATE_FORMAT),
+                "birthDate" => !is_null($this->birthDate) ? $this->birthDate->format(TEBO_DATE_FORMAT) : '',
                 "emailAddress" => $this->emailAddress,
                 "mobileNumber" => $this->mobileNumber,
                 "parentNumber" => $this->parentNumber,
                 "gotScholarshipLastYear" => $this->gotScholarshipLastYear,
                 "requiredScholarships" => $this->requiredScholarships,
                 "fileId" => $this->fileId,
+                "stateOfOrigin" => $this->stateOfOrigin,
                 "address" => $this->address,
                 "howKnowFoundation" => $this->howKnowFoundation,
                 "volunteerInterest" => $this->volunteerInterest,
                 "whyScholarship" => $this->whyScholarship,
                 "iAgree" => $this->iAgree,
-                "approved" => $this->approved,
-                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(WB_DATETIME_FORMAT) : ''
+                "approved" => $this->approved ?? false,
+                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''
             );
         }
 

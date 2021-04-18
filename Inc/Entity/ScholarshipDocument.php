@@ -1,15 +1,16 @@
 <?php
     class ScholarshipDocument extends BaseEntity {
 
-        protected $scholarshipId; // int
-        protected $requestLetter; // string
-        protected $admissionLetter; // string
-        protected $jambResult; // string
-        protected $waecResult; // string
-        protected $matriculationNumber; // string
-        protected $indigeneCertificate; // string
-        protected $birthCertificate; // string
-        protected $validIdCard; // string
+        public $scholarshipId; // int
+        public $passportPhotograph; // string
+        public $requestLetter; // string
+        public $admissionLetter; // string
+        public $jambResult; // string
+        public $waecResult; // string
+        public $matriculationNumber; // string
+        public $indigeneCertificate; // string
+        public $birthCertificate; // string
+        public $validIdCard; // string
 
         public function __construct(array $config) {
             parent::__construct($config);
@@ -33,15 +34,16 @@
             return array(
                 "id" => $this->id,
                 "scholarshipId" => $this->scholarshipId,
-                "requestLetter" => $this->requestLetter,
-                "admissionLetter" => $this->admissionLetter,
-                "jambResult" => $this->jambResult,
-                "waecResult" => $this->waecResult,
-                "matriculationNumber" => $this->matriculationNumber,
-                "indigeneCertificate" => $this->indigeneCertificate,
-                "birthCertificate" => $this->birthCertificate,
-                "validIdCard" => $this->validIdCard,
-                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(WB_DATETIME_FORMAT) : ''
+                "passportPhotograph" => $this->passportPhotograph->toArray(),
+                "requestLetter" => $this->requestLetter->toArray(),
+                "admissionLetter" => $this->admissionLetter->toArray(),
+                "jambResult" => $this->jambResult->toArray(),
+                "waecResult" => $this->waecResult->toArray(),
+                "matriculationNumber" => $this->matriculationNumber->toArray(),
+                "indigeneCertificate" => $this->indigeneCertificate->toArray(),
+                "birthCertificate" => $this->birthCertificate->toArray(),
+                "validIdCard" => $this->validIdCard->toArray(),
+                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''
             );
         }
 

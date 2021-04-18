@@ -3,16 +3,30 @@
 @import "~tailwindcss/utilities"; */
 // @import "~tailwindcss/dist/tailwind.min.css";
 
-[type='text'], [type='email'], [type='url'], [type='password'], 
-[type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], 
+[type='text'], [type='email'], [type='url'], [type='password'],
+[type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'],
 [type='time'], [type='week'], [multiple], textarea, select {
     font-size: 14px !important;
 }
 
-.galaxy-admin-tab-content .button-secondary.all {
+.near-admin-tab-content .button-secondary.all {
     margin-left: 0.25rem !important;
 }
 
 .all.button-secondary {
     margin-left: 0.25rem !important;
+}
+
+.near-tab {
+    &__nav {}
+
+    &__content-wrapper {}
+
+    &__content {
+        display: none;
+
+        &--active {
+            display: block;
+        }
+    }
 }

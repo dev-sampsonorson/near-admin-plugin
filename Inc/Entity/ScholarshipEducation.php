@@ -1,13 +1,13 @@
 <?php
     class ScholarshipEducation extends BaseEntity {
 
-        protected $scholarshipId; // int
-        protected $level; // string
-        protected $schoolName; // string
-        protected $department; // string
-        protected $class; // string
-        protected $city; // string
-        protected $state; // string
+        public $scholarshipId; // int
+        public $level; // string
+        public $schoolName; // string
+        public $department; // string
+        public $class; // string
+        public $city; // string
+        public $state; // string
 
         public function __construct(array $config) {
             parent::__construct($config);
@@ -37,7 +37,7 @@
                 "class" => $this->class,
                 "city" => $this->city,
                 "state" => $this->state,
-                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(WB_DATETIME_FORMAT) : ''
+                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''
             );
         }
 

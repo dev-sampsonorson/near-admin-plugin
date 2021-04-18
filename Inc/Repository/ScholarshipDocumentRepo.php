@@ -15,14 +15,15 @@
                     $rows[] = new ScholarshipDocument([
                         "id" => $row->id,
                         "scholarshipId" => $row->scholarshipId,
-                        "requestLetter" => $row->requestLetter,
-                        "admissionLetter" => $row->admissionLetter,
-                        "jambResult" => $row->jambResult,
-                        "waecResult" => $row->waecResult,
-                        "matriculationNumber" => $row->matriculationNumber,
-                        "indigeneCertificate" => $row->indigeneCertificate,
-                        "birthCertificate" => $row->birthCertificate,
-                        "validIdCard" => $row->validIdCard,
+                        "passportPhotograph" => new FileInfo(null, $row->passportPhotograph),
+                        "requestLetter" => new FileInfo(null, $row->requestLetter),
+                        "admissionLetter" => new FileInfo(null, $row->requestadmissionLetterLetter),
+                        "jambResult" => new FileInfo(null, $row->jambResult),
+                        "waecResult" => new FileInfo(null, $row->waecResult),
+                        "matriculationNumber" => new FileInfo(null, $row->matriculationNumber),
+                        "indigeneCertificate" => new FileInfo(null, $row->indigeneCertificate),
+                        "birthCertificate" => new FileInfo(null, $row->birthCertificate),
+                        "validIdCard" => new FileInfo(null, $row->validIdCard),
                         "insertDate" => Helper::toDateTimeFromString($row->insertDate)
                     ]);
                 }
@@ -53,14 +54,15 @@
                 return new ScholarshipDocument([
                         "id" => $row->id,
                         "scholarshipId" => $row->scholarshipId,
-                        "requestLetter" => $row->requestLetter,
-                        "admissionLetter" => $row->admissionLetter,
-                        "jambResult" => $row->jambResult,
-                        "waecResult" => $row->waecResult,
-                        "matriculationNumber" => $row->matriculationNumber,
-                        "indigeneCertificate" => $row->indigeneCertificate,
-                        "birthCertificate" => $row->birthCertificate,
-                        "validIdCard" => $row->validIdCard,
+                        "passportPhotograph" => new FileInfo(null, $row->passportPhotograph),
+                        "requestLetter" => new FileInfo(null, $row->requestLetter),
+                        "admissionLetter" => new FileInfo(null, $row->requestadmissionLetterLetter),
+                        "jambResult" => new FileInfo(null, $row->jambResult),
+                        "waecResult" => new FileInfo(null, $row->waecResult),
+                        "matriculationNumber" => new FileInfo(null, $row->matriculationNumber),
+                        "indigeneCertificate" => new FileInfo(null, $row->indigeneCertificate),
+                        "birthCertificate" => new FileInfo(null, $row->birthCertificate),
+                        "validIdCard" => new FileInfo(null, $row->validIdCard),
                         "insertDate" => Helper::toDateTimeFromString($row->insertDate)
                     ]);
             } catch (Exception $e) {
@@ -81,14 +83,15 @@
                 return new ScholarshipDocument([
                         "id" => $row->id,
                         "scholarshipId" => $row->scholarshipId,
-                        "requestLetter" => $row->requestLetter,
-                        "admissionLetter" => $row->admissionLetter,
-                        "jambResult" => $row->jambResult,
-                        "waecResult" => $row->waecResult,
-                        "matriculationNumber" => $row->matriculationNumber,
-                        "indigeneCertificate" => $row->indigeneCertificate,
-                        "birthCertificate" => $row->birthCertificate,
-                        "validIdCard" => $row->validIdCard,
+                        "passportPhotograph" => new FileInfo(null, $row->passportPhotograph),
+                        "requestLetter" => new FileInfo(null, $row->requestLetter),
+                        "admissionLetter" => new FileInfo(null, $row->requestadmissionLetterLetter),
+                        "jambResult" => new FileInfo(null, $row->jambResult),
+                        "waecResult" => new FileInfo(null, $row->waecResult),
+                        "matriculationNumber" => new FileInfo(null, $row->matriculationNumber),
+                        "indigeneCertificate" => new FileInfo(null, $row->indigeneCertificate),
+                        "birthCertificate" => new FileInfo(null, $row->birthCertificate),
+                        "validIdCard" => new FileInfo(null, $row->validIdCard),
                         "insertDate" => Helper::toDateTimeFromString($row->insertDate)
                     ]);
     
@@ -102,16 +105,28 @@
 
         public function insert(ScholarshipDocument $data): ?ScholarshipDocument {
             try {                
-                $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                // $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                $data->setInsertDate(Helper::toDateTimeFromString((new DateTime())->format(TEBO_DATETIME_FORMAT)));
 
                 $dataAsArray = $data->toArray();
                 unset($dataAsArray["id"]);
+
+                $dataAsArray["passportPhotograph"] = $dataAsArray["passportPhotograph"]["newFilename"];
+                $dataAsArray["requestLetter"] = $dataAsArray["requestLetter"]["newFilename"];
+                $dataAsArray["admissionLetter"] = $dataAsArray["admissionLetter"]["newFilename"];
+                $dataAsArray["jambResult"] = $dataAsArray["jambResult"]["newFilename"];
+                $dataAsArray["waecResult"] = $dataAsArray["waecResult"]["newFilename"];
+                $dataAsArray["matriculationNumber"] = $dataAsArray["matriculationNumber"]["newFilename"];
+                $dataAsArray["indigeneCertificate"] = $dataAsArray["indigeneCertificate"]["newFilename"];
+                $dataAsArray["birthCertificate"] = $dataAsArray["birthCertificate"]["newFilename"];
+                $dataAsArray["validIdCard"] = $dataAsArray["validIdCard"]["newFilename"];
 
                 $result = $this->wpdb->insert(
                     $this->getTableName(), 
                     $dataAsArray,
                     array(
                         'scholarshipId' => '%d',
+                        'passportPhotograph' => '%s',
                         'requestLetter' => '%s',
                         'admissionLetter' => '%s',
                         'jambResult' => '%s',
@@ -143,6 +158,16 @@
                 unset($dataAsArray["id"]);
                 unset($dataAsArray["insertDate"]);
 
+                $dataAsArray["passportPhotograph"] = $dataAsArray["passportPhotograph"]["newFilename"];
+                $dataAsArray["requestLetter"] = $dataAsArray["requestLetter"]["newFilename"];
+                $dataAsArray["admissionLetter"] = $dataAsArray["admissionLetter"]["newFilename"];
+                $dataAsArray["jambResult"] = $dataAsArray["jambResult"]["newFilename"];
+                $dataAsArray["waecResult"] = $dataAsArray["waecResult"]["newFilename"];
+                $dataAsArray["matriculationNumber"] = $dataAsArray["matriculationNumber"]["newFilename"];
+                $dataAsArray["indigeneCertificate"] = $dataAsArray["indigeneCertificate"]["newFilename"];
+                $dataAsArray["birthCertificate"] = $dataAsArray["birthCertificate"]["newFilename"];
+                $dataAsArray["validIdCard"] = $dataAsArray["validIdCard"]["newFilename"];
+
                 $result = $this->wpdb->update(
                     $this->getTableName(), 
                     $dataAsArray,
@@ -151,6 +176,7 @@
                     ),
                     array(
                         'scholarshipId' => '%d',
+                        'passportPhotograph' => '%s',
                         'requestLetter' => '%s',
                         'admissionLetter' => '%s',
                         'jambResult' => '%s',
@@ -181,6 +207,16 @@
                 unset($dataAsArray["scholarshipId"]);
                 unset($dataAsArray["insertDate"]);
 
+                $dataAsArray["passportPhotograph"] = $dataAsArray["passportPhotograph"]["newFilename"];
+                $dataAsArray["requestLetter"] = $dataAsArray["requestLetter"]["newFilename"];
+                $dataAsArray["admissionLetter"] = $dataAsArray["admissionLetter"]["newFilename"];
+                $dataAsArray["jambResult"] = $dataAsArray["jambResult"]["newFilename"];
+                $dataAsArray["waecResult"] = $dataAsArray["waecResult"]["newFilename"];
+                $dataAsArray["matriculationNumber"] = $dataAsArray["matriculationNumber"]["newFilename"];
+                $dataAsArray["indigeneCertificate"] = $dataAsArray["indigeneCertificate"]["newFilename"];
+                $dataAsArray["birthCertificate"] = $dataAsArray["birthCertificate"]["newFilename"];
+                $dataAsArray["validIdCard"] = $dataAsArray["validIdCard"]["newFilename"];
+
                 $result = $this->wpdb->update(
                     $this->getTableName(), 
                     $dataAsArray,
@@ -189,6 +225,7 @@
                     ),
                     array(
                         // 'scholarshipId' => '%d',
+                        'passportPhotograph' => '%s',
                         'requestLetter' => '%s',
                         'admissionLetter' => '%s',
                         'jambResult' => '%s',

@@ -4,7 +4,9 @@ export default interface IFormConfig {
     saveButtonId: string;
     cancelButtonId: string;
 
+    fileNumberSelector?: string;
     fileInputIds?: string[];
+    completionNotificationModalSelector?: string;
 
     notificationFormContainerId: string;
     validatableControlSelector: string;

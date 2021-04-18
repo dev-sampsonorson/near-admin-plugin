@@ -39,13 +39,14 @@
                         "otherNames" => $row->otherNames,
                         "nationalIdNumber" => $row->nationalIdNumber,
                         "birthPlace" => $row->birthPlace,
-                        "birthDate" => $row->birthDate,
+                        "birthDate" => Helper::toDateTimeFromString($row->birthDate),
                         "emailAddress" => $row->emailAddress,
                         "mobileNumber" => $row->mobileNumber,
                         "parentNumber" => $row->parentNumber,
                         "gotScholarshipLastYear" => $row->gotScholarshipLastYear,
                         "requiredScholarships" => $row->requiredScholarships,
                         "fileId" => $row->fileId,
+                        "stateOfOrigin" => $row->stateOfOrigin,
                         "address" => $row->address,
                         "howKnowFoundation" => $row->howKnowFoundation,
                         "volunteerInterest" => $row->volunteerInterest,
@@ -109,13 +110,14 @@
                     "otherNames" => $row->otherNames,
                     "nationalIdNumber" => $row->nationalIdNumber,
                     "birthPlace" => $row->birthPlace,
-                    "birthDate" => $row->birthDate,
+                    "birthDate" => Helper::toDateTimeFromString($row->birthDate),
                     "emailAddress" => $row->emailAddress,
                     "mobileNumber" => $row->mobileNumber,
                     "parentNumber" => $row->parentNumber,
                     "gotScholarshipLastYear" => $row->gotScholarshipLastYear,
                     "requiredScholarships" => $row->requiredScholarships,
                     "fileId" => $row->fileId,
+                    "stateOfOrigin" => $row->stateOfOrigin,
                     "address" => $row->address,
                     "howKnowFoundation" => $row->howKnowFoundation,
                     "volunteerInterest" => $row->volunteerInterest,
@@ -169,13 +171,14 @@
                     "otherNames" => $row->otherNames,
                     "nationalIdNumber" => $row->nationalIdNumber,
                     "birthPlace" => $row->birthPlace,
-                    "birthDate" => $row->birthDate,
+                    "birthDate" => Helper::toDateTimeFromString($row->birthDate),
                     "emailAddress" => $row->emailAddress,
                     "mobileNumber" => $row->mobileNumber,
                     "parentNumber" => $row->parentNumber,
                     "gotScholarshipLastYear" => $row->gotScholarshipLastYear,
                     "requiredScholarships" => $row->requiredScholarships,
                     "fileId" => $row->fileId,
+                    "stateOfOrigin" => $row->stateOfOrigin,
                     "address" => $row->address,
                     "howKnowFoundation" => $row->howKnowFoundation,
                     "volunteerInterest" => $row->volunteerInterest,
@@ -214,9 +217,20 @@
             }
         }
 
+        public function getLastScholarshipId(): ?int {
+            try {      
+                return $this->wpdb->get_var("SELECT MAX(id) FROM {$this->getTableName()}") ?? 0;
+            } catch (Exception $e) {
+                throw new Exception("Scholarship could not be found");
+            } finally {
+                $this->wpdb->flush();
+            }
+        }
+
         public function insert(Scholarship $data): ?Scholarship {
             try {                
-                $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                // $data->setInsertDate(Helper::toDateTimeFromString(current_time('mysql', 1)));
+                $data->setInsertDate(Helper::toDateTimeFromString((new DateTime())->format(TEBO_DATETIME_FORMAT)));
 
                 $dataAsArray = $data->toArray();
                 unset($dataAsArray["id"]);
@@ -237,6 +251,7 @@
                         'gotScholarshipLastYear' => '%d',
                         'requiredScholarships' => '%s',
                         'fileId' => '%s',
+                        'stateOfOrigin' => '%s',
                         'address' => '%s',
                         'howKnowFoundation' => '%s',
                         'volunteerInterest' => '%d',
@@ -314,6 +329,7 @@
                         'gotScholarshipLastYear' => '%d',
                         'requiredScholarships' => '%s',
                         'fileId' => '%s',
+                        'stateOfOrigin' => '%s',
                         'address' => '%s',
                         'howKnowFoundation' => '%s',
                         'volunteerInterest' => '%d',
@@ -326,8 +342,6 @@
 
                 if ($result === false)
                     return null;
-
-                    echo "update";
 
                 $data->scholarshipBank->setScholarshipId($data->getId());
                 $data->scholarshipEducation->setScholarshipId($data->getId());

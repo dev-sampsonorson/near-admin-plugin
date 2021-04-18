@@ -7,6 +7,7 @@ import moment from 'moment';
 import 'bootstrap-datepicker';
 import FormNotification, { NotificationStatus } from "../form-notification/FormNotification";
 import FormDataExtractor from '../form-data-extractor/FormDataExtractor';
+import ValidationError from "../app-error/ValidationError";
 
 
 export default class VolunteerForm {
@@ -17,6 +18,7 @@ export default class VolunteerForm {
     private saveEl: HTMLButtonElement;
     private cancelEl: HTMLButtonElement;
 
+    private ddlStateOfOriginEl: HTMLInputElement;
 
     private formDataExtractor: FormDataExtractor;
     private notificationEl: FormNotification;
@@ -26,6 +28,8 @@ export default class VolunteerForm {
         this.formEl = this.wrapperEl.querySelector(`#${this.config.formId}`)! as HTMLFormElement;
         this.saveEl = this.wrapperEl.querySelector(`#${this.config.saveButtonId}`)! as HTMLButtonElement;
         this.cancelEl = this.wrapperEl.querySelector(`#${this.config.cancelButtonId}`)! as HTMLButtonElement;
+
+        this.ddlStateOfOriginEl = this.wrapperEl.querySelector(`#ddlStateOfOrigin`)! as HTMLInputElement;
 
         this.formDataExtractor = new FormDataExtractor();
 
@@ -44,6 +48,8 @@ export default class VolunteerForm {
 
     setup() {
         const self = this;
+
+        self.loadStateDropdown();
 
         // Init
         $('.date-control').datepicker({
@@ -86,23 +92,50 @@ export default class VolunteerForm {
             }
         });
 
-        this.saveEl.addEventListener('click', e => {
-            const el = e.currentTarget as HTMLElement;
-            const isValid = this.validationInstance.validate();
+        this.saveEl.addEventListener('click', async e => {
+            e.preventDefault();
 
-            if (!isValid) {
-                this.notificationEl.error("Oops, you have not completed the form correctly");
-                return true;
+            try {
+                this.saveEl.disabled = true;
+
+                const el = e.currentTarget as HTMLElement;
+                const isValid = this.validationInstance.validate();
+
+                if (!isValid) {
+                    this.notificationEl.error("Oops, you have not completed the form correctly");
+                    return true;
+                }
+
+                const formData = new FormData();
+                const url = frontend_script_config.ajaxRequestUrl;
+                const data = this.formDataExtractor.toObject(this.formEl);
+
+                formData.append("action", "saveVolunteerForm");
+                formData.append("nonce", frontend_script_config.saveVolunteerFormNonce);
+                formData.append("data", JSON.stringify(data));
+
+                const response = await fetch(url, {
+                    method: "POST",
+                    body: new URLSearchParams(formData as URLSearchParams)
+                });
+
+                const responseObj = await response.json();
+                const responseResult = responseObj.data.result;
+
+                if (response.status !== 200) {
+                    throw new ValidationError(responseResult.key, responseResult);
+                }
+
+                if (!responseObj.success)
+                    throw "Failed to save volunteer";
+
+                this.notificationEl?.show(NotificationStatus.Success, "Successfully saved volunteer");
+                this.formEl.reset();
+            } catch (err) {
+                this.notificationEl?.show(NotificationStatus.Danger, "Unable to save volunteer, check the form for errors and try again.");
+            } finally {
+                this.saveEl.disabled = false;
             }
-
-            window['values'] = this.formDataExtractor.toObject(this.formEl);
-
-            console.log(window['values']);
-
-            // const fields = $(this.formEl).serializeArray();
-            // console.log(fields);
-
-
 
             e.stopPropagation();
         });
@@ -170,6 +203,23 @@ export default class VolunteerForm {
         } else {
             groupTitleEl?.classList.remove(groupTitleClassName);
         }
+    }
+
+    loadStateDropdown(selectedStateId: number = 0) {
+        this.ddlStateOfOriginEl.innerHTML = '';
+
+        let options = `<option ${selectedStateId !== 0 ? '' : 'selected'} disabled value="">Select a state of origin</option>`;
+
+        for (const state of TeboUtility.allStates) {
+            let selected = '';
+            if (selectedStateId !== 0 && selectedStateId === state.stateId) {
+                selected = 'selected';
+            }
+            options += `<option ${selected} value="${state.stateId}">${state.stateName}</option>`;
+        }
+
+        this.ddlStateOfOriginEl?.insertAdjacentHTML('beforeend', options);
+        this.ddlStateOfOriginEl?.dispatchEvent(new Event('change'));
     }
 
 }

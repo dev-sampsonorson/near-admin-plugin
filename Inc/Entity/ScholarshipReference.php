@@ -1,14 +1,14 @@
 <?php
     class ScholarshipReference extends BaseEntity {
 
-        protected $scholarshipId; // int
-        protected $lastName; // string
-        protected $firstName; // string
-        protected $otherNames; // string
-        protected $occupation; // string
-        protected $position; // string
-        protected $address; // string
-        protected $phoneNumber; // string
+        public $scholarshipId; // int
+        public $lastName; // string
+        public $firstName; // string
+        public $otherNames; // string
+        public $occupation; // string
+        public $position; // string
+        public $address; // string
+        public $phoneNumber; // string
 
         public function __construct(array $config) {
             parent::__construct($config);
@@ -39,7 +39,7 @@
                 "position" => $this->position,
                 "address" => $this->address,
                 "phoneNumber" => $this->phoneNumber,
-                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(WB_DATETIME_FORMAT) : ''
+                "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''
             );
         }
 

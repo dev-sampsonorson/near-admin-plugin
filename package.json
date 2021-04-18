@@ -1,7 +1,7 @@
 {
   "name": "near-admin-plugin",
   "version": "1.0.0",
-  "description": "Admin wordpress plugin for galaxy.com.ng",
+  "description": "Admin wordpress plugin for nearfoundation.ngo",
   "main": "index.js",
   "keywords": [],
   "scripts": {

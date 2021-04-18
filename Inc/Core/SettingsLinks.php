@@ -11,7 +11,7 @@
         }
     
         public function settings_link($links) {
-            $settings_link = '<a href="admin.php?page=galaxy-admin-plugin">Admin</a>';
+            $settings_link = '<a href="admin.php?page=near-admin-plugin">Admin</a>';
             array_push($links, $settings_link);
             return $links;
         }

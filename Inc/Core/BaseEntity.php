@@ -12,7 +12,7 @@
         protected function __construct(array $config) {
             // , ?DateTime $insertDate, ?DateTime $updateDate, int $id = 0
             // $this->id = $id;
-            // $this->insertDate = $insertDate; //new DateTime('now', new DateTimeZone(WB_CURRENT_TIMEZONE))
+            // $this->insertDate = $insertDate; //new DateTime('now', new DateTimeZone(TEBO_CURRENT_TIMEZONE))
             // $this->updateDate = $updateDate;
             
             foreach($config as $key => $value) {
@@ -36,7 +36,6 @@
 
                     $refMethod = new ReflectionMethod($className,  '__construct');
                     $params = $refMethod->getParameters();
-                    // print_r($params);
 
                     foreach($params as $paramKey => $paramValue) {
                         if ($paramValue->name !== 'config')
