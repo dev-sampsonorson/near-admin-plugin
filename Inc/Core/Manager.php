@@ -233,6 +233,8 @@
             // when creating tables
             // add_option(ADMIN_DB_VERSION_KEY, ADMIN_DB_VERSION);
             Manager::addOrRemoveAdminDbVersion(self::ADD);
+
+            Manager::createPages();
         }
 
         private static function addOrRemoveAdminDbVersion($operation) {
@@ -335,8 +337,66 @@
             return $result ? true : false;
         }
 
+        public static function createPages() {
+            // Scholarship
+            $scholarship_title = 'Scholarship Form';
+            $scholarship_content = '<!-- wp:shortcode -->[near-scholarship-form]<!-- /wp:shortcode -->';
+            $scholarship_type = 'page';
+            if (!post_exists($scholarship_title, $scholarship_content, '', $scholarship_type)) {
+                $wordpress_page = array(
+                    'post_name' => NEAR_FOUNDATION_SCHOLARSHIP_FORM_SLUG,
+                    'post_title'    => $scholarship_title,
+                    'post_content'  => $scholarship_content,
+                    'post_status'   => 'publish',
+                    'post_author'   => 1,
+                    'post_type' => $scholarship_type
+                );
+                wp_insert_post( $wordpress_page );
+            }
+
+            // Volunteer
+            $volunteer_title = 'Volunteer Form';
+            $volunteer_content = '<!-- wp:shortcode -->[near-volunteer-form]<!-- /wp:shortcode -->';
+            $volunteer_type = 'page';
+            if (!post_exists($volunteer_title, $volunteer_content, '', $volunteer_type)) {
+                $wordpress_page = array(
+                    'post_name' => NEAR_FOUNDATION_VOLUNTEER_FORM_SLUG,
+                    'post_title'    => $volunteer_title,
+                    'post_content'  => $volunteer_content,
+                    'post_status'   => 'publish',
+                    'post_author'   => 1,
+                    'post_type' => $volunteer_type
+                );
+                wp_insert_post( $wordpress_page );
+            }
+
+            // Donation
+            $donation_title = 'Donation';
+            $donation_content = '<!-- wp:shortcode -->[near-donation-form]<!-- /wp:shortcode -->';
+            $donation_type = 'page';
+            if (!post_exists($donation_title, $donation_content, '', $donation_type)) {
+                $wordpress_page = array(
+                    'post_name' => NEAR_FOUNDATION_DONATION_FORM_SLUG,
+                    'post_title'    => $donation_title,
+                    'post_content'  => $donation_content,
+                    'post_status'   => 'publish',
+                    'post_author'   => 1,
+                    'post_type' => $donation_type
+                );
+                wp_insert_post( $wordpress_page );
+            }
+        }
+
+        public static function deletePages() {
+            wp_delete_post(get_page_id_by_slug(NEAR_FOUNDATION_SCHOLARSHIP_FORM_SLUG), true);            
+            wp_delete_post(get_page_id_by_slug(NEAR_FOUNDATION_VOLUNTEER_FORM_SLUG), true);            
+            wp_delete_post(get_page_id_by_slug(NEAR_FOUNDATION_DONATION_FORM_SLUG), true);
+        }
+
         public static function deactivate() {
             flush_rewrite_rules();
+
+            Manager::deletePages();
         }
 
         public static function uninstall() {
@@ -347,6 +407,8 @@
             foreach(Manager::$tables as $table_name => $value) {
                 $result = Manager::removeTable($table_name, Manager::$tables[$table_name]);
             }
+
+            Manager::deletePages();
         }
 
     }

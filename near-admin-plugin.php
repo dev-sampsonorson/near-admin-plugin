@@ -31,9 +31,9 @@
     define ('ADMIN_DB_VERSION', '1.0' );
 
     define ('NEAR_FOUNDATION_ADMIN_VERSION', '1.0' );
-    define ('NEAR_FOUNDATION_VOLUNTEER_FORM_SLUG', 'volunteer-form' );
-    define ('NEAR_FOUNDATION_SCHOLARSHIP_FORM_SLUG', 'scholarship-form' );
-    define ('NEAR_FOUNDATION_DONATION_FORM_SLUG', 'donation-form' );
+    define ('NEAR_FOUNDATION_VOLUNTEER_FORM_SLUG', 'near-volunteer-form' );
+    define ('NEAR_FOUNDATION_SCHOLARSHIP_FORM_SLUG', 'near-scholarship-form' );
+    define ('NEAR_FOUNDATION_DONATION_FORM_SLUG', 'near-donation-form' );
 
     define ('NEAR_FOUNDATION_DEFAULT_PAGE_SIZE', 2);
     define ('NEAR_FOUNDATION_SEARCH_QUERY_PARAM', 'near-search');

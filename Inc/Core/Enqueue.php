@@ -11,9 +11,9 @@
         }
     
         public function enqueueBackendScripts() {
-            wp_enqueue_style( 'tailwind-css', $this->plugin_url . 'dist/css/tailwind.min.css', array(), false, false);
+            // wp_enqueue_style( 'tailwind-css', $this->plugin_url . 'dist/css/tailwind.min.css', array(), false, false);
             // wp_enqueue_style( 'bootstrap-css', $this->plugin_url . 'dist/css/bootstrap.min.css', array(), false, false);
-            wp_enqueue_style( 'near-plugin-backend-css', $this->plugin_url . 'dist/css/backend.css', array('tailwind-css'), microtime(), false);
+            wp_enqueue_style( 'near-plugin-backend-css', $this->plugin_url . 'dist/css/backend.css', array(), microtime(), false);
             
             wp_enqueue_script( 'runtime-js', $this->plugin_url . 'dist/js/runtime.plugin-bundle.js', array(), false, true);
             wp_enqueue_script( 'vendor-js', $this->plugin_url . 'dist/js/vendor.plugin-bundle.js', array('runtime-js'), false, true);
