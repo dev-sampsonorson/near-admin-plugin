@@ -145,12 +145,11 @@
             <div class="form-row">
                 <div class="form-group col-6">
                     <div class="form-check">
-                        <input id="chkSportsCoachOrAssistant" name="volunteer[interest][]"
-                               value="chkSportsCoachOrAssistant" type="checkbox" class="form-check-input"
+                        <input id="chkHungerReliefActivities" name="volunteer[interest][]"
+                               value="chkHungerReliefActivities" type="checkbox" class="form-check-input"
                                data-parsley-multiple="chkVolunteerInterest" required="" data-parsley-mincheck="1"
                                data-tebo-group-title="#volunteerInterestTitle">
-                        <label class="form-check-label" for="chkSportsCoachOrAssistant">Sports
-                            coach/assistant</label>
+                        <label class="form-check-label" for="chkHungerReliefActivities">Hunger relief activities</label>
                     </div>
                     <div class="form-check">
                         <input id="chkHelpChildrenRead" name="volunteer[interest][]" value="chkHelpChildrenRead"

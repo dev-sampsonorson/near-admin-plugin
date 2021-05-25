@@ -183,11 +183,11 @@ module.exports = (env) => {
                     ]
                 }
             }),
-            new webpack.DefinePlugin({
+            /* new webpack.DefinePlugin({
                 "process.env": {
                     "NODE_ENV": JSON.stringify(process.env.NODE_ENV)
                 }
-            }),
+            }), */
             {
                 apply(compiler) {
                     compiler.hooks.shouldEmit.tap('Remove styles from output', (compilation) => {

@@ -22,7 +22,7 @@
             );
 
             $this->volunteerInterestOptions = array (
-                "chkSportsCoachOrAssistant" => "Sports coach/assistant",
+                "chkHungerReliefActivities" => "Hunger relief activities",
                 "chkHelpChildrenRead" => "Helping children read or reading to them",
                 "chkMentoringTeens" => "Mentoring Teens",
                 "chkOrphanageVisiting" => "Orphanage visiting",

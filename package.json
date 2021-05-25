@@ -8,8 +8,8 @@
     "webpack": "webpack",
     "webpack-watch": "webpack --watch",
     "webpack-dev-server": "webpack-dev-server",
-    "build:dev": "npm run clean && npm run webpack-watch -- --env.mode development",
-    "build:prod": "npm run clean && npm run webpack -- --env.mode production",
+    "build:dev": "cross-env NODE_ENV=development npm run clean && npm run webpack-watch -- --env.mode development",
+    "build:prod": "cross-env NODE_ENV=production npm run clean && npm run webpack -- --env.mode production",
     "clean": "rimraf ./dist/*"
   },
   "author": "Sampson Orson Jackson",
@@ -25,6 +25,7 @@
     "babel-loader": "^8.1.0",
     "compass-mixins": "^0.12.10",
     "copy-webpack-plugin": "^6.0.3",
+    "cross-env": "^7.0.3",
     "css-loader": "^3.6.0",
     "css-minimizer-webpack-plugin": "^1.1.5",
     "file-loader": "^6.0.0",
