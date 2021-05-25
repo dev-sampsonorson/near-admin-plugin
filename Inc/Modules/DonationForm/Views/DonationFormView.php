@@ -40,10 +40,11 @@
             <label for="ddlReason">Reason</label>
             <select class="custom-select d-block w-100" id="ddlReason" name="donation[ddlReason]" required>
                 <option value="">Choose...</option>
-                <option value="Education">Education</option>
-                <option value="Health">Health</option>
-                <option value="Hunger">Hunger</option>
-                <option value="Water">Water</option>
+                <option value="Education Relief">Education Relief</option>
+                <option value="Health Relief">Health Relief</option>
+                <option value="Hunger Relief">Hunger Relief</option>
+                <option value="Water Relief">Water Relief</option>
+                <option value="General Donation">General Donation</option>
             </select>
         </div>
         <div class="form-group">
