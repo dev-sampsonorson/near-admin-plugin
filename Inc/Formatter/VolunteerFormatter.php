@@ -31,7 +31,7 @@
                 "chkNotListedActivityOfInterest" => "Activities not listed that I'm interested in", //?
                 "chkArtCraftActivityInstructor" => "Arts & Craft activity instructor/assistant",
                 "chkAssistingWithFundraising" => "Assisting with fundraising",
-                "chkHelpingChildrenUseComputers" => "Helping children use computers",
+                // "chkHelpingChildrenUseComputers" => "Helping children use computers",
                 "chkCharityShop" => "Charity shop",
             );
         }

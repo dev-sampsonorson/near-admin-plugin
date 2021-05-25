@@ -167,11 +167,6 @@
                                type="checkbox" class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
                         <label class="form-check-label" for="chkOrphanageVisiting">Orphanage visiting</label>
                     </div>
-                    <div class="form-check">
-                        <input id="chkCommunityWork" name="volunteer[interest][]" value="chkCommunityWork"
-                               type="checkbox" class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
-                        <label class="form-check-label" for="chkCommunityWork">Community work</label>
-                    </div>
                 </div>
                 <div class="form-group col-6">
                     <div class="form-check">
@@ -189,16 +184,14 @@
                             fundraising</label>
                     </div>
                     <div class="form-check">
-                        <input id="chkHelpingChildrenUseComputers" name="volunteer[interest][]"
-                               value="chkHelpingChildrenUseComputers" type="checkbox" class="form-check-input"
-                               data-parsley-multiple="chkVolunteerInterest">
-                        <label class="form-check-label" for="chkHelpingChildrenUseComputers">Helping children use
-                            computers</label>
-                    </div>
-                    <div class="form-check">
                         <input id="chkCharityShop" name="volunteer[interest][]" value="chkCharityShop" type="checkbox"
                                class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
                         <label class="form-check-label" for="chkCharityShop">Charity shop</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkCommunityWork" name="volunteer[interest][]" value="chkCommunityWork"
+                               type="checkbox" class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
+                        <label class="form-check-label" for="chkCommunityWork">Community work</label>
                     </div>
                 </div>
             </div>
