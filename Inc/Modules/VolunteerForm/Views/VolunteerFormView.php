@@ -16,12 +16,14 @@
             <h5 class="text-muted">Personal Details</h5>
             <div class="form-row">
                 <div class="form-group col-4">
-                    <label for="txtLastName">Last Name</label>
+                    <label for="txtLastName" class="clearfix">Last Name <span
+                              class="float-right text-danger">required</span></label>
                     <input type="text" id="txtLastName" name="volunteer[txtLastName]"
                            class="form-control form-control-sm" placeholder="" required="" value="">
                 </div>
                 <div class="form-group col-4">
-                    <label for="txtFirstName">First Name</label>
+                    <label for="txtFirstName" class="clearfix">First Name <span
+                              class="float-right text-danger">required</span></label>
                     <input type="text" id="txtFirstName" name="volunteer[txtFirstName]"
                            class="form-control form-control-sm" placeholder="" required="" value="">
                 </div>
@@ -33,12 +35,14 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-6">
-                    <label for="txtMobileNumber">Mobile Number</label>
+                    <label for="txtMobileNumber" class="clearfix">Mobile Number <span
+                              class="float-right text-danger">required</span></label>
                     <input type="text" id="txtMobileNumber" name="volunteer[txtMobileNumber]"
                            class="form-control form-control-sm" placeholder="" required="" value="">
                 </div>
                 <div class="form-group col-6">
-                    <label for="txtEmailAddress">Email Address</label>
+                    <label for="txtEmailAddress" class="clearfix">Email Address <span
+                              class="float-right text-danger">required</span></label>
                     <input type="email" id="txtEmailAddress" name="volunteer[txtEmailAddress]"
                            class="form-control form-control-sm" placeholder="" required="" value="">
                 </div>
