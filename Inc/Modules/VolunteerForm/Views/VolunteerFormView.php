@@ -152,10 +152,12 @@
                         <label class="form-check-label" for="chkHungerReliefActivities">Hunger relief activities</label>
                     </div>
                     <div class="form-check">
-                        <input id="chkHelpChildrenRead" name="volunteer[interest][]" value="chkHelpChildrenRead"
-                               type="checkbox" class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
-                        <label class="form-check-label" for="chkHelpChildrenRead">Helping children read or reading
-                            to them</label>
+                        <input id="chkHelpingChildrenAcademically" name="volunteer[interest][]"
+                               value="chkHelpingChildrenAcademically" type="checkbox" class="form-check-input"
+                               data-parsley-multiple="chkVolunteerInterest">
+                        <label class="form-check-label" for="chkHelpingChildrenAcademically">Helping children
+                            academically
+                            (writing, reading, use of computers)"</label>
                     </div>
                     <div class="form-check">
                         <input id="chkMentoringTeens" name="volunteer[interest][]" value="chkMentoringTeens"
@@ -166,6 +168,11 @@
                         <input id="chkOrphanageVisiting" name="volunteer[interest][]" value="chkOrphanageVisiting"
                                type="checkbox" class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
                         <label class="form-check-label" for="chkOrphanageVisiting">Orphanage visiting</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="chkCommunityWork" name="volunteer[interest][]" value="chkCommunityWork"
+                               type="checkbox" class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
+                        <label class="form-check-label" for="chkCommunityWork">Community work</label>
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -184,14 +191,16 @@
                             fundraising</label>
                     </div>
                     <div class="form-check">
+                        <input id="chkHealthReliefActivities" name="volunteer[interest][]"
+                               value="chkHealthReliefActivities" type="checkbox" class="form-check-input"
+                               data-parsley-multiple="chkVolunteerInterest">
+                        <label class="form-check-label" for="chkHealthReliefActivities">Health relief
+                            activities</label>
+                    </div>
+                    <div class="form-check">
                         <input id="chkCharityShop" name="volunteer[interest][]" value="chkCharityShop" type="checkbox"
                                class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
                         <label class="form-check-label" for="chkCharityShop">Charity shop</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="chkCommunityWork" name="volunteer[interest][]" value="chkCommunityWork"
-                               type="checkbox" class="form-check-input" data-parsley-multiple="chkVolunteerInterest">
-                        <label class="form-check-label" for="chkCommunityWork">Community work</label>
                     </div>
                 </div>
             </div>

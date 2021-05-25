@@ -23,7 +23,7 @@
 
             $this->volunteerInterestOptions = array (
                 "chkHungerReliefActivities" => "Hunger relief activities",
-                "chkHelpChildrenRead" => "Helping children read or reading to them",
+                "chkHelpingChildrenAcademically" => "Helping children academically (writing, reading, use of computers)",
                 "chkMentoringTeens" => "Mentoring Teens",
                 "chkOrphanageVisiting" => "Orphanage visiting",
                 "chkCommunityWork" => "Community work",
@@ -31,6 +31,7 @@
                 "chkNotListedActivityOfInterest" => "Activities not listed that I'm interested in", //?
                 "chkArtCraftActivityInstructor" => "Arts & Craft activity instructor/assistant",
                 "chkAssistingWithFundraising" => "Assisting with fundraising",
+                "chkHealthReliefActivities" => "Health relief activities",
                 // "chkHelpingChildrenUseComputers" => "Helping children use computers",
                 "chkCharityShop" => "Charity shop",
             );
