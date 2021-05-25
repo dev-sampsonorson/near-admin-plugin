@@ -215,9 +215,8 @@
                     <input id="chkNotListedActivityOfInterest" name="volunteer[interest][]"
                            value="chkNotListedActivityOfInterest" type="checkbox" class="form-check-input"
                            data-parsley-multiple="chkVolunteerInterest">
-                    <label class="form-check-label" for="chkNotListedActivityOfInterest">Not listed activities
-                        of
-                        interest</label>
+                    <label class="form-check-label" for="chkNotListedActivityOfInterest">Activities not listed that i am
+                        interested in</label>
                 </div>
                 <div class="flex-sm-grow-1">
                     <div class="mt-2 form-group">
