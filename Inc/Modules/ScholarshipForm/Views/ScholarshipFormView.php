@@ -152,8 +152,8 @@
                            class="form-control form-control-sm" placeholder="" required="" value="">
                 </div>
                 <div class="col-12 form-group col-sm-6">
-                    <label for="txtBankBranch">Branch Name</label>
-                    <input type="text" id="txtBankBranch" name="scholarship[txtBankBranch]"
+                    <label for="txtBankAccountName">Account Name</label>
+                    <input type="text" id="txtBankAccountName" name="scholarship[txtBankAccountName]"
                            class="form-control form-control-sm" placeholder="" required="" value="">
                 </div>
             </div>

@@ -16,7 +16,7 @@
                         "id" => $row->id,
                         "scholarshipId" => $row->scholarshipId,
                         "bankName" => $row->bankName,
-                        "branchName" => $row->branchName,
+                        "accountName" => $row->accountName,
                         "accountNumber" => $row->accountNumber,
                         "ibanNumber" => $row->ibanNumber,
                         "insertDate" => Helper::toDateTimeFromString($row->insertDate)
@@ -50,7 +50,7 @@
                         "id" => $row->id,
                         "scholarshipId" => $row->scholarshipId,
                         "bankName" => $row->bankName,
-                        "branchName" => $row->branchName,
+                        "accountName" => $row->accountName,
                         "accountNumber" => $row->accountNumber,
                         "ibanNumber" => $row->ibanNumber,
                         "insertDate" => Helper::toDateTimeFromString($row->insertDate)
@@ -74,7 +74,7 @@
                         "id" => $row->id,
                         "scholarshipId" => $row->scholarshipId,
                         "bankName" => $row->bankName,
-                        "branchName" => $row->branchName,
+                        "accountName" => $row->accountName,
                         "accountNumber" => $row->accountNumber,
                         "ibanNumber" => $row->ibanNumber,
                         "insertDate" => Helper::toDateTimeFromString($row->insertDate)
@@ -102,7 +102,7 @@
                     array(
                         'scholarshipId' => '%d',
                         'bankName' => '%s',
-                        'branchName' => '%s',
+                        'accountName' => '%s',
                         'accountNumber' => '%s',
                         'ibanNumber' => '%s',
                         'insertDate' => '%s'
@@ -137,7 +137,7 @@
                     array(
                         'scholarshipId' => '%d',
                         'bankName' => '%s',
-                        'branchName' => '%s',
+                        'accountName' => '%s',
                         'accountNumber' => '%s',
                         'ibanNumber' => '%s',
                     ),
@@ -171,7 +171,7 @@
                     array(
                         // 'scholarshipId' => '%d',
                         'bankName' => '%s',
-                        'branchName' => '%s',
+                        'accountName' => '%s',
                         'accountNumber' => '%s',
                         'ibanNumber' => '%s',
                     ),

@@ -3,7 +3,7 @@
 
         public $scholarshipId; // int
         public $bankName; // string
-        public $branchName; // string
+        public $accountName; // string
         public $accountNumber; // string
         public $ibanNumber; // string
 
@@ -30,7 +30,7 @@
                 "id" => $this->id,
                 "scholarshipId" => $this->scholarshipId,
                 "bankName" => $this->bankName,
-                "branchName" => $this->branchName,
+                "accountName" => $this->accountName,
                 "accountNumber" => $this->accountNumber,
                 "ibanNumber" => $this->ibanNumber,
                 "insertDate" => !is_null($this->insertDate) ? $this->insertDate->format(TEBO_DATETIME_FORMAT) : ''

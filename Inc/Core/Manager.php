@@ -120,7 +120,7 @@
                     'id' => 'int(11) NOT NULL AUTO_INCREMENT',
                     'scholarshipId' => 'int(11) NOT NULL',
                     'bankName' => 'tinytext NOT NULL',
-                    'branchName' => 'tinytext NOT NULL',
+                    'accountName' => 'tinytext NOT NULL',
                     'accountNumber' => 'tinytext NOT NULL',
                     'ibanNumber' => 'tinytext NOT NULL',
                     'insertDate' => 'DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP'

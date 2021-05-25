@@ -45,7 +45,7 @@
                     </p>
                 </form>
                 <a href="<?php echo $_SERVER['PHP_SELF'] . '?page=' . $_GET['page']; ?>"
-                   class="all button-secondary ml-1">All</a>
+                   class="ml-1 all button-secondary">All</a>
             </div>
 
         </div>
@@ -101,7 +101,7 @@
                         </table>
                     </div>
                 </div>
-                <nav class="flex items-center justify-between sm:ml-3 sm:mr-5 py-3 px-5 bg-white border-t border-gray-200 sm:rounded-lg"
+                <nav class="flex items-center justify-between px-5 py-3 bg-white border-t border-gray-200 sm:ml-3 sm:mr-5 sm:rounded-lg"
                      aria-label="Pagination">
                     <div class="hidden sm:block">
                         Showing
@@ -115,20 +115,20 @@
                     <div class="flex justify-between flex-1 sm:justify-end">
                         <?php if($pageNumber > 1): ?>
                         <a href="<?php echo Helper::mergeQueryString($pageUrl, '?' . NEAR_FOUNDATION_PAGE_QUERY_PARAM . '=' . ($pageNumber - 1)); ?>"
-                           class="relative inline-flex items-center px-4 py-1 text-xs border border-gray-300 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                           class="relative inline-flex items-center px-4 py-1 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
                             Previous
                         </a>
                         <?php endif; ?>
                         <?php if($scholarshipAppsReport->totalPage > 1 && $pageNumber < $scholarshipAppsReport->totalPage): ?>
                         <a href="<?php echo Helper::mergeQueryString($pageUrl, '?' . NEAR_FOUNDATION_PAGE_QUERY_PARAM . '=' . ($pageNumber + 1)); ?>"
-                           class="ml-3 relative inline-flex items-center px-4 py-1 border border-gray-300 text-xs font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                           class="relative inline-flex items-center px-4 py-1 ml-3 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
                             Next
                         </a>
                         <?php endif; ?>
                     </div>
                 </nav>
                 <?php } else { ?>
-                <h3 class="py-5 sm:pl-3 sm:pr-5 text-center font-medium text-xl">No scholarship applications found
+                <h3 class="py-5 text-xl font-medium text-center sm:pl-3 sm:pr-5">No scholarship applications found
                 </h3>
                 <?php } ?>
             </div>
@@ -136,22 +136,22 @@
     </div>
 </div>
 
-<div id="detailsPopup" class="hidden fixed z-10 inset-0 overflow-y-auto details-popup">
-    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+<div id="detailsPopup" class="fixed inset-0 z-10 hidden overflow-y-auto details-popup">
+    <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 transition-opacity" aria-hidden="true">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
         </div>
 
         <!-- This element is to trick the browser into centering the modal contents. -->
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-        <div class="inline-block align-top bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6"
+        <div class="inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-top transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6"
              role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-            <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+            <div class="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
                 <button id="btnClose" type="button"
-                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        class="text-gray-400 bg-white rounded-md hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     <span class="sr-only">Close</span>
                     <!-- Heroicon name: x -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M6 18L18 6M6 6l12 12" />
@@ -160,19 +160,19 @@
             </div>
             <div>
                 <div class="px-4 pb-3 sm:pb-4">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">
                         Scholarship Application
                     </h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    <p class="max-w-2xl mt-1 text-sm text-gray-500">
                         Information about the scholarship application.
                     </p>
                 </div>
-                <div id="popUpMainContent" class="border-t border-gray-200 py-4 details-popup__main-content">
+                <div id="popUpMainContent" class="py-4 border-t border-gray-200 details-popup__main-content">
                     <div class="near-tab">
                         <div class="sm:hidden">
                             <label for="tabs" class="sr-only">Select a tab</label>
                             <select id="tabs" name="tabs"
-                                    class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    class="block w-full py-2 pl-3 pr-10 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 <option selected>Personal</option>
                                 <option>Bank &amp; Education</option>
                                 <option>Family &amp; Siblings</option>
@@ -181,24 +181,24 @@
                         </div>
                         <div class="hidden sm:block">
                             <div class="border-b border-gray-200">
-                                <nav class="near-tab__nav -mb-px flex space-x-8" aria-label="Tabs" id="mgtCenterTab">
+                                <nav class="flex -mb-px space-x-8 near-tab__nav" aria-label="Tabs" id="mgtCenterTab">
                                     <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200" -->
                                     <a href="#" data-near-tab-content-id="personal"
-                                       class="border-indigo-500 text-indigo-600 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm nav-link">
+                                       class="flex px-1 py-4 text-sm font-medium text-indigo-600 border-b-2 border-indigo-500 whitespace-nowrap nav-link">
                                         Personal
                                     </a>
                                     <a href="#" data-near-tab-content-id="bank-and-education"
-                                       class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm nav-link">
+                                       class="flex px-1 py-4 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-200 whitespace-nowrap nav-link">
                                         Bank &amp; Education
                                     </a>
 
                                     <a href="#" data-near-tab-content-id="family-and-siblings"
-                                       class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm nav-link"
+                                       class="flex px-1 py-4 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-200 whitespace-nowrap nav-link"
                                        aria-current="page">
                                         Family &amp; Siblings
                                     </a>
                                     <a href="#" data-near-tab-content-id="document-and-reference"
-                                       class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm nav-link">
+                                       class="flex px-1 py-4 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:text-gray-700 hover:border-gray-200 whitespace-nowrap nav-link">
                                         Document &amp; Reference
                                     </a>
                                 </nav>
@@ -352,7 +352,7 @@
                             </div>
                             <div class="near-tab__content" id="bank-and-education" role="tabpanel"
                                  aria-labelledby="bank-and-education-tab">
-                                <h3 class="font-bold text-gray-700 text-sm mb-2">Bank</h3>
+                                <h3 class="mb-2 text-sm font-bold text-gray-700">Bank</h3>
                                 <div class="flex flex-col">
                                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -365,9 +365,9 @@
                                                 </div>
                                                 <div class="sm:col-span-1">
                                                     <dt class="text-sm font-medium text-gray-500">
-                                                        Bank Branch
+                                                        Account Name
                                                     </dt>
-                                                    <dd id="txt-branchName" class="mt-1 text-sm text-gray-900"></dd>
+                                                    <dd id="txt-accountName" class="mt-1 text-sm text-gray-900"></dd>
                                                 </div>
                                                 <div class="sm:col-span-1">
                                                     <dt class="text-sm font-medium text-gray-500">
@@ -385,7 +385,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="font-bold text-gray-700 text-sm mb-2 mt-4">Education</h3>
+                                <h3 class="mt-4 mb-2 text-sm font-bold text-gray-700">Education</h3>
                                 <div class="flex flex-col">
                                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -433,7 +433,7 @@
                             </div>
                             <div class="near-tab__content" id="family-and-siblings" role="tabpanel"
                                  aria-labelledby="family-and-siblings-tab">
-                                <h3 class="font-bold text-gray-700 text-sm mb-2 mt-4">Father</h3>
+                                <h3 class="mt-4 mb-2 text-sm font-bold text-gray-700">Father</h3>
                                 <div class="flex flex-col">
                                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -490,7 +490,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="font-bold text-gray-700 text-sm mb-2 mt-4">Mother</h3>
+                                <h3 class="mt-4 mb-2 text-sm font-bold text-gray-700">Mother</h3>
                                 <div class="flex flex-col">
                                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -547,7 +547,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="font-bold text-gray-700 text-sm mb-2 mt-4">Siblings</h3>
+                                <h3 class="mt-4 mb-2 text-sm font-bold text-gray-700">Siblings</h3>
                                 <div class="flex flex-col">
                                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -586,7 +586,7 @@
                             </div>
                             <div class="near-tab__content" id="document-and-reference" role="tabpanel"
                                  aria-labelledby="document-and-reference-tab">
-                                <h3 class="font-bold text-gray-700 text-sm mb-2 mt-4">Document</h3>
+                                <h3 class="mt-4 mb-2 text-sm font-bold text-gray-700">Document</h3>
                                 <div class="flex flex-col">
                                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -680,7 +680,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="font-bold text-gray-700 text-sm mb-2 mt-4">Reference</h3>
+                                <h3 class="mt-4 mb-2 text-sm font-bold text-gray-700">Reference</h3>
                                 <div class="flex flex-col">
                                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">

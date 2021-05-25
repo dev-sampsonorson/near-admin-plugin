@@ -100,7 +100,7 @@ class ScholarshipFormController extends BaseController
         // Bank
         $config["__scholarshipBank"] = array(
             "bankName" => $data->txtBankName,
-            "branchName" => $data->txtBankBranch,
+            "accountName" => $data->txtBankAccountName,
             "accountNumber" => $data->txtAccountNumber,
             "ibanNumber" => $data->txtIbanNumber
         );        

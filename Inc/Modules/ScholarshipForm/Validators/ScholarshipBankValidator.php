@@ -27,19 +27,19 @@
 
             $this->validation = ScholarshipBankValidator::$validator->make([
                 'bankName' => $entityAsArray["bankName"],
-                'branchName' => $entityAsArray["branchName"],
+                'accountName' => $entityAsArray["accountName"],
                 'accountNumber' => $entityAsArray["accountNumber"],
                 'ibanNumber' => $entityAsArray["ibanNumber"],
             ], [
                 'bankName' => 'required',
-                'branchName' => 'required',
+                'accountName' => 'required',
                 'accountNumber' => 'required',
                 'ibanNumber' => 'required',
             ]);
 
             $this->validation->setAliases([
                 'bankName' => 'Bank name',
-                'branchName' => 'Branch name',
+                'accountName' => 'Account name',
                 'accountNumber' => 'Account number',
                 'ibanNumber' => 'IBAN number',
             ]);
