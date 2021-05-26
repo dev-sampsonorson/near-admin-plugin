@@ -99,8 +99,16 @@ module.exports = (env) => {
         optimization: {
             minimize: true,
             minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        format: {
+                            comments: false,
+                        },
+                    },
+                    extractComments: false,
+                    test: /\.js(\?.*)?$/i,
+                }),
                 new CssMinimizerPlugin(),
-                // new TerserPlugin()
             ],
             runtimeChunk: 'single',
             removeEmptyChunks: true,
@@ -183,11 +191,11 @@ module.exports = (env) => {
                     ]
                 }
             }),
-            /* new webpack.DefinePlugin({
+            new webpack.DefinePlugin({
                 "process.env": {
-                    "NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+                    "NODE_ENV": JSON.stringify(process.env.NODE_ENV) //
                 }
-            }), */
+            }),
             {
                 apply(compiler) {
                     compiler.hooks.shouldEmit.tap('Remove styles from output', (compilation) => {
