@@ -55,6 +55,9 @@
                 "insertDate" => !is_null($data->getInsertDate()) ? $data->getInsertDate()->format(TEBO_DATE_FORMAT) : '',
 
                 "bankName" => $data->scholarshipBank->bankName,
+                "bankCode" => $data->scholarshipBank->bankCode,
+                "bankSortCode" => $data->scholarshipBank->bankSortCode,
+                "accountName" => $data->scholarshipBank->accountName,
                 "branchName" => $data->scholarshipBank->branchName,
                 "accountNumber" => $data->scholarshipBank->accountNumber,
                 "ibanNumber" => $data->scholarshipBank->ibanNumber,

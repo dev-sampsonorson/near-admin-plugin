@@ -96,14 +96,17 @@ class ScholarshipFormController extends BaseController
         $config["volunteerInterest"] = $data->rbVolunteerParticipation === 'true' ? true : fasle;
         $config["whyScholarship"] = $data->txtWhyScholarship;
         $config["iAgree"] = $data->chkIAgree === 'true' ? true : fasle;
-
+        
         // Bank
+        $bank = BankCollection::findBank($data->ddlBank);
         $config["__scholarshipBank"] = array(
-            "bankName" => $data->txtBankName,
+            "bankName" => $data->ddlBank,
+            "bankCode" => $bank->bankCode,
+            "bankSortCode" => $bank->bankSortCode,
             "accountName" => $data->txtBankAccountName,
             "accountNumber" => $data->txtAccountNumber,
             "ibanNumber" => $data->txtIbanNumber
-        );        
+        );  
         
         // Education
         $config["__scholarshipEducation"] = array(

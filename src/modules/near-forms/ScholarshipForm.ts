@@ -19,6 +19,7 @@ export default class ScholarshipForm {
     private cancelEl: HTMLButtonElement;
 
     private ddlStateOfOriginEl: HTMLInputElement;
+    private ddlBankEl: HTMLInputElement;
     private fileNumberEl?: HTMLElement;
     private fileInputIds: string[];
 
@@ -32,6 +33,7 @@ export default class ScholarshipForm {
         this.cancelEl = this.wrapperEl.querySelector(`#${this.config.cancelButtonId}`)! as HTMLButtonElement;
 
         this.ddlStateOfOriginEl = this.wrapperEl.querySelector(`#ddlStateOfOrigin`)! as HTMLInputElement;
+        this.ddlBankEl = this.wrapperEl.querySelector(`#ddlBank`)! as HTMLInputElement;
 
         this.fileInputIds = this.config.fileInputIds || [];
 
@@ -53,7 +55,8 @@ export default class ScholarshipForm {
     setup() {
         const self = this;
 
-        self.loadStateDropdown();
+        self.loadStateDropdown(2);
+        self.loadBankDropdown("044");
         self.injectModalIntoDom();
 
         /* $('#myModal').on('shown.bs.modal', function () {
@@ -310,7 +313,6 @@ export default class ScholarshipForm {
     }
 
     loadStateDropdown(selectedStateId: number = 0) {
-        console.log('this.ddlStateOfOriginEl', this.ddlStateOfOriginEl);
         this.ddlStateOfOriginEl.innerHTML = '';
 
         let options = `<option ${selectedStateId !== 0 ? '' : 'selected'} disabled value="">Select a state of origin</option>`;
@@ -325,6 +327,19 @@ export default class ScholarshipForm {
 
         this.ddlStateOfOriginEl?.insertAdjacentHTML('beforeend', options);
         this.ddlStateOfOriginEl?.dispatchEvent(new Event('change'));
+    }
+
+    loadBankDropdown(selectedBankCode: string = '') {
+        this.ddlBankEl.innerHTML = '';
+
+        let options = `<option ${selectedBankCode ? '' : 'selected'} disabled value="">Select Country</option>`;
+
+        for (const bank of TeboUtility.allBanks) {
+            options += `<option ${selectedBankCode.toLocaleLowerCase() !== bank.bankCode.toLocaleLowerCase() ? '' : 'selected'}  value="${bank.bankCode}">${bank.bankName}</option>`;
+        }
+
+        this.ddlBankEl?.insertAdjacentHTML('beforeend', options);
+        this.ddlBankEl?.dispatchEvent(new Event('change'));
     }
 
 }

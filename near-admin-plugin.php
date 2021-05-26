@@ -75,6 +75,8 @@
     require_once(TEBO_PLUGIN_PATH . 'Inc/Core/SettingsApi.php');
     require_once(TEBO_PLUGIN_PATH . 'Inc/Core/FileInfo.php');
     require_once(TEBO_PLUGIN_PATH . 'Inc/Core/PageResult.php');
+    require_once(TEBO_PLUGIN_PATH . 'Inc/Core/Bank.php');
+    require_once(TEBO_PLUGIN_PATH . 'Inc/Core/BankCollection.php');
 
     /*
      * Entities

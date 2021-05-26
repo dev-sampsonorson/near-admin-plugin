@@ -21,52 +21,52 @@
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtLastName">Last Name</label>
                     <input type="text" id="txtLastName" name="scholarship[txtLastName]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="fdadfdsf">
                 </div>
                 <div class="col-12 form-group col-sm-4 ">
                     <label for="txtFirstName">First Name</label>
                     <input type="text" id="txtFirstName" name="scholarship[txtFirstName]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfasfsfafs">
                 </div>
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtOtherName">Other Names</label>
                     <input type="text" id="txtOtherName" name="scholarship[txtOtherName]"
-                           class="form-control form-control-sm" placeholder="" value="">
+                           class="form-control form-control-sm" placeholder="" value="dfasfsfas">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-12 col-sm-4">
                     <label for="txtNationalIdNumber">National ID Number</label>
                     <input type="text" id="txtNationalIdNumber" name="scholarship[txtNationalIdNumber]"
-                           class="form-control form-control-sm" placeholder="" value="">
+                           class="form-control form-control-sm" placeholder="" value="dfasfsfa">
                 </div>
                 <div class="form-group col-12 col-sm-4">
                     <label for="txtBirthPlace">Birth Place</label>
                     <input type="text" id="txtBirthPlace" name="scholarship[txtBirthPlace]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfafdfsafs">
                 </div>
                 <div class="form-group col-12 col-sm-4">
                     <label for="dtpBirthDate">Birth Date</label>
                     <input type="text" class="form-control form-control-sm date-control" id="dtpBirthDate"
                            name="scholarship[dtpBirthDate]" placeholder="YYYY-MM-DD" required="" data-parsley-dateformat
-                           value="">
+                           value="2021-05-04">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-12 col-sm-4">
                     <label for="txtEmailAddress">Email Address</label>
                     <input type="text" id="txtEmailAddress" name="scholarship[txtEmailAddress]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="example@email.com">
                 </div>
                 <div class="form-group col-12 col-sm-4">
                     <label for="txtMobileNumber">Mobile</label>
                     <input type="text" id="txtMobileNumber" name="scholarship[txtMobileNumber]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="08043328343">
                 </div>
                 <div class="form-group col-12 col-sm-4">
                     <label for="txtParentsPhone">Parent's Phone</label>
                     <input type="text" id="txtParentsPhone" name="scholarship[txtParentsPhone]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="08043328343">
                 </div>
             </div>
             <div class="form-row">
@@ -77,7 +77,7 @@
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="rbLastYearScholarshipYes"
                                name="scholarship[rbLastYearScholarship]" value="true" required=""
-                               data-tebo-group-title="#scholarshipBeneficiaryTitle">
+                               data-tebo-group-title="#scholarshipBeneficiaryTitle" checked>
                         <label class="form-check-label" for="rbLastYearScholarshipYes">Yes</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -96,7 +96,7 @@
                         <input class="form-check-input" type="checkbox" id="chkScholarshipReqAccomodation"
                                name="scholarship[scholarshipType][]" value="chkScholarshipReqAccomodation"
                                data-parsley-multiple="chkScholarshipType" required="" data-parsley-mincheck="1"
-                               data-tebo-group-title="#scholarshipTypeTitle">
+                               data-tebo-group-title="#scholarshipTypeTitle" checked>
                         <label class="form-check-label" for="chkScholarshipReqAccomodation">Accomodation</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -133,7 +133,7 @@
                 <div class="form-group col-12">
                     <label for="txtAddress" class="form-label">Address</label>
                     <input type="text" id="txtAddress" name="scholarship[txtAddress]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfasfdsafd">
                 </div>
             </div>
             <div class="form-row">
@@ -141,7 +141,7 @@
                     <label for="txtHowKnowFoundation" class="form-label">How did you know about our
                         foundation?</label>
                     <input type="text" id="txtHowKnowFoundation" name="scholarship[txtHowKnowFoundation]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="sdfafdfasfdsfdsf">
                 </div>
             </div>
             <h5 class="text-muted">Bank Account</h5>
@@ -155,19 +155,19 @@
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtBankAccountName" class="clearfix">Account Name <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtBankAccountName" name="scholarship[txtBankAccountName]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfasfdsfsafs">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtAccountNumber" class="clearfix">Account Number <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtAccountNumber" name="scholarship[txtAccountNumber]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="3333333333">
                 </div>
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtIbanNumber" class="clearfix">IBAN Number <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtIbanNumber" name="scholarship[txtIbanNumber]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="322243242">
                 </div>
             </div>
             <h5 class="mt-4 text-muted">Educational Background</h5>
@@ -180,7 +180,7 @@
                         <input class="form-check-input" type="checkbox" id="chkEduPrimary"
                                name="scholarship[educationLevel][]" value="chkEduPrimary"
                                data-parsley-multiple="chkEducationLevel" required="" data-parsley-mincheck="1"
-                               data-tebo-group-title="#educationLevelTitle">
+                               data-tebo-group-title="#educationLevelTitle" checked>
                         <label class="form-check-label" for="chkEduPrimary">Primary</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -201,29 +201,29 @@
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtEduSchoolName">School Name</label>
                     <input type="text" id="txtEduSchoolName" name="scholarship[txtEduSchoolName]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfafsfa">
                 </div>
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtEduDepartment">Department</label>
                     <input type="text" id="txtEduDepartment" name="scholarship[txtEduDepartment]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfasffafds">
                 </div>
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtEduClass">Class</label>
                     <input type="text" id="txtEduClass" name="scholarship[txtEduClass]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfafadfasf">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtEduCity">City (Local Government)</label>
                     <input type="text" id="txtEduCity" name="scholarship[txtEduCity]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfafsa">
                 </div>
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtEduState">State</label>
                     <input type="text" id="txtEduState" name="scholarship[txtEduState]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfasdffa">
                 </div>
             </div>
             <h5 class="mt-4 text-muted">Family Information</h5>
@@ -234,7 +234,7 @@
                         <div class="form-group">
                             <label for="txtFamilyMotherName" class="clearfix">Name <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyMotherName" name="scholarship[txtFamilyMotherName]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="dafsfa">
                         </div>
                         <div class="form-row">
                             <div id="aliveOrDeceasedMotherTitle" class="clearfix mb-2 col-12">
@@ -245,7 +245,7 @@
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" id="rbFamilyMotherAlive"
                                            name="scholarship[rbFamilyMotherAlive]" value="alive" required=""
-                                           data-tebo-group-title="#aliveOrDeceasedMotherTitle">
+                                           data-tebo-group-title="#aliveOrDeceasedMotherTitle" checked>
                                     <label class="form-check-label" for="rbFamilyMotherAlive">Alive</label>
                                 </div>
                                 <div class="form-check form-check-inline">
@@ -259,28 +259,28 @@
                             <label for="txtFamilyMotherOccupation" class="clearfix">Occupation <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyMotherOccupation"
                                    name="scholarship[txtFamilyMotherOccupation]" class="form-control form-control-sm"
-                                   placeholder="" required="" value="">
+                                   placeholder="" required="" value="dfasffa">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyMotherIncome" class="clearfix">Monthly Income <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyMotherIncome" name="scholarship[txtFamilyMotherIncome]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="12000">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyMotherCity" class="clearfix">City <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyMotherCity" name="scholarship[txtFamilyMotherCity]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="fasdfsfa">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyMotherState" class="clearfix">State (Local Government) <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyMotherState" name="scholarship[txtFamilyMotherState]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="dfasfds">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyMotherMobileNumber" class="clearfix">Mobile Number <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyMotherMobileNumber"
                                    name="scholarship[txtFamilyMotherMobileNumber]" class="form-control form-control-sm"
-                                   placeholder="" required="" value="">
+                                   placeholder="" required="" value="08043328343">
                         </div>
 
                     </div>
@@ -291,7 +291,7 @@
                         <div class="form-group">
                             <label for="txtFamilyFatherName" class="clearfix">Name <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyFatherName" name="scholarship[txtFamilyFatherName]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="dfafsf">
                         </div>
                         <div class="form-row">
                             <div id="aliveOrDeceasedFatherTitle" class="clearfix mb-2 col-12">
@@ -302,7 +302,7 @@
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" id="rbFamilyFatherAlive"
                                            name="scholarship[rbFamilyFatherAlive]" value="alive" required=""
-                                           data-tebo-group-title="#aliveOrDeceasedFatherTitle">
+                                           data-tebo-group-title="#aliveOrDeceasedFatherTitle" checked>
                                     <label class="form-check-label" for="rbFamilyFatherAlive">Alive</label>
                                 </div>
                                 <div class="form-check form-check-inline">
@@ -316,28 +316,28 @@
                             <label for="txtFamilyFatherOccupation" class="clearfix">Occupation <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyFatherOccupation"
                                    name="scholarship[txtFamilyFatherOccupation]" class="form-control form-control-sm"
-                                   placeholder="" required="" value="">
+                                   placeholder="" required="" value="dfasfsf">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyFatherIncome" class="clearfix">Monthly Income <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyFatherIncome" name="scholarship[txtFamilyFatherIncome]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="34000">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyFatherCity" class="clearfix">City <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyFatherCity" name="scholarship[txtFamilyFatherCity]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="dfasfsa">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyFatherState" class="clearfix">State (Local Government) <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyFatherState" name="scholarship[txtFamilyFatherState]"
-                                   class="form-control form-control-sm" placeholder="" required="" value="">
+                                   class="form-control form-control-sm" placeholder="" required="" value="dfasfsafa">
                         </div>
                         <div class="form-group">
                             <label for="txtFamilyFatherMobileNumber" class="clearfix">Mobile Number <span class="float-right text-danger">required</span></label>
                             <input type="text" id="txtFamilyFatherMobileNumber"
                                    name="scholarship[txtFamilyFatherMobileNumber]" class="form-control form-control-sm"
-                                   placeholder="" required="" value="">
+                                   placeholder="" required="" value="08043328343">
                         </div>
 
                     </div>
@@ -348,12 +348,12 @@
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtSiblingNumber">Number of Siblings</label>
                     <input type="text" id="txtSiblingNumber" name="scholarship[txtSiblingNumber]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="3">
                 </div>
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtSiblingPrimarySchNumber">The Number of Those in Primary</label>
                     <input type="text" id="txtSiblingPrimarySchNumber" name="scholarship[txtSiblingPrimarySchNumber]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="3">
                 </div>
             </div>
             <div class="form-row">
@@ -361,12 +361,12 @@
                     <label for="txtSiblingSecondarySchNumber">The Number of Those in Secondary</label>
                     <input type="text" id="txtSiblingSecondarySchNumber"
                            name="scholarship[txtSiblingSecondarySchNumber]" class="form-control form-control-sm"
-                           placeholder="" required="" value="">
+                           placeholder="" required="" value="3">
                 </div>
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtSiblingUniversityNumber">The Number of Those in University</label>
                     <input type="text" id="txtSiblingUniversityNumber" name="scholarship[txtSiblingUniversityNumber]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="3">
                 </div>
             </div>
             <hr class="my-4">
@@ -378,7 +378,7 @@
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" id="rbVolunteerParticipationYes"
                                name="scholarship[rbVolunteerParticipation]" value="true" required=""
-                               data-tebo-group-title="#volunteerParticipationTitle">
+                               data-tebo-group-title="#volunteerParticipationTitle" checked>
                         <label class="form-check-label" for="rbVolunteerParticipationYes">Yes</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -474,7 +474,7 @@
                 <div class="mb-3 col-12">
                     <div class="form-group">
                         <textarea class="form-control" id="txtWhyScholarship" name="scholarship[txtWhyScholarship]"
-                                  rows="3" required=""></textarea>
+                                  rows="3" required="">dfasfasfds</textarea>
                     </div>
                 </div>
             </div>
@@ -483,43 +483,43 @@
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtRefLastName" class="clearfix">Last Name <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtRefLastName" name="scholarship[txtRefLastName]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfasfdsf">
                 </div>
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtRefFirstName" class="clearfix">First Name <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtRefFirstName" name="scholarship[txtRefFirstName]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="fdasfsfasf">
                 </div>
                 <div class="col-12 form-group col-sm-4">
                     <label for="txtRefOtherName" class="clearfix">Other Names <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtRefOtherName" name="scholarship[txtRefOtherName]"
-                           class="form-control form-control-sm" placeholder="">
+                           class="form-control form-control-sm" placeholder="dfasfdsf">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtRefOccupation" class="clearfix">Occupation <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtRefOccupation" name="scholarship[txtRefOccupation]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="fdssafsafs">
                 </div>
                 <div class="col-12 form-group col-sm-6">
                     <label for="txtRefPosition" class="clearfix">Position <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtRefPosition" name="scholarship[txtRefPosition]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="dfasfsafa">
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-12 form-group">
                     <label for="txtRefAddress" class="clearfix form-label">Address <span class="float-right text-danger">required</span></label>
                     <textarea class="form-control" id="txtRefAddress" name="scholarship[txtRefAddress]" rows="2"
-                              required=""></textarea>
+                              required="">dfasfsfas</textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-12 form-group">
                     <label for="txtRefPhoneNumber" class="clearfix">Phone Number <span class="float-right text-danger">required</span></label>
                     <input type="text" id="txtRefPhoneNumber" name="scholarship[txtRefPhoneNumber]"
-                           class="form-control form-control-sm" placeholder="" required="" value="">
+                           class="form-control form-control-sm" placeholder="" required="" value="08043328343">
                 </div>
             </div>
             <hr class="my-4">

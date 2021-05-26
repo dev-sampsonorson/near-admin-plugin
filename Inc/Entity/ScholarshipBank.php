@@ -3,6 +3,8 @@
 
         public $scholarshipId; // int
         public $bankName; // string
+        public $bankCode; // string
+        public $bankSortCode; // string
         public $accountName; // string
         public $accountNumber; // string
         public $ibanNumber; // string
@@ -30,6 +32,8 @@
                 "id" => $this->id,
                 "scholarshipId" => $this->scholarshipId,
                 "bankName" => $this->bankName,
+                "bankCode" => $this->bankCode,
+                "bankSortCode" => $this->bankSortCode,
                 "accountName" => $this->accountName,
                 "accountNumber" => $this->accountNumber,
                 "ibanNumber" => $this->ibanNumber,

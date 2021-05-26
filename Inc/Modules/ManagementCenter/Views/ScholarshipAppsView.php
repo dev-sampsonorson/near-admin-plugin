@@ -365,6 +365,18 @@
                                                 </div>
                                                 <div class="sm:col-span-1">
                                                     <dt class="text-sm font-medium text-gray-500">
+                                                        Bank Code
+                                                    </dt>
+                                                    <dd id="txt-bankCode" class="mt-1 text-sm text-gray-900"></dd>
+                                                </div>
+                                                <div class="sm:col-span-1">
+                                                    <dt class="text-sm font-medium text-gray-500">
+                                                        Bank Sort Code
+                                                    </dt>
+                                                    <dd id="txt-bankSortCode" class="mt-1 text-sm text-gray-900"></dd>
+                                                </div>
+                                                <div class="sm:col-span-1">
+                                                    <dt class="text-sm font-medium text-gray-500">
                                                         Account Name
                                                     </dt>
                                                     <dd id="txt-accountName" class="mt-1 text-sm text-gray-900"></dd>
